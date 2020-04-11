@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Etomon Design System</title>
+	<link rel="stylesheet" href="css/eDS.css" />
+	<link rel="stylesheet" href="css/libs/animate.css" />
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=NTR" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script>	
+	(function() {
+  var Util,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+  Util = (function() {
+    function Util() {}
+
+    Util.prototype.extend = function(custom, defaults) {
+      var key, value;
+      for (key in custom) {
+        value = custom[key];
+        if (value != null) {
+          defaults[key] = value;
+        }
+      }
+      return defaults;
+    };
+
+    Util.prototype.isMobile = function(agent) {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
+    };
+
+    return Util;
+
+  })();
+
+  this.WOW = (function() {
+    WOW.prototype.defaults = {
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true
+    };
+
+    function WOW(options) {
+      if (options == null) {
+        options = {};
+      }
+      this.scrollCallback = __bind(this.scrollCallback, this);
+      this.scrollHandler = __bind(this.scrollHandler, this);
+      this.start = __bind(this.start, this);
+      this.scrolled = true;
+      this.config = this.util().extend(options, this.defaults);
+    }
+
+    WOW.prototype.init = function() {
+      var _ref;
+      this.element = window.document.documentElement;
+      if ((_ref = document.readyState) === "interactive" || _ref === "complete") {
+        return this.start();
+      } else {
+        return document.addEventListener('DOMContentLoaded', this.start);
+      }
+    };
+
+    WOW.prototype.start = function() {
+      var box, _i, _len, _ref;
+      this.boxes = this.element.getElementsByClassName(this.config.boxClass);
+      if (this.boxes.length) {
+        if (this.disabled()) {
+          return this.resetStyle();
+        } else {
+          _ref = this.boxes;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            box = _ref[_i];
+            this.applyStyle(box, true);
+          }
+          window.addEventListener('scroll', this.scrollHandler, false);
+          window.addEventListener('resize', this.scrollHandler, false);
+          return this.interval = setInterval(this.scrollCallback, 50);
+        }
+      }
+    };
+
+    WOW.prototype.stop = function() {
+      window.removeEventListener('scroll', this.scrollHandler, false);
+      window.removeEventListener('resize', this.scrollHandler, false);
+      if (this.interval != null) {
+        return clearInterval(this.interval);
+      }
+    };
+
+    WOW.prototype.show = function(box) {
+      this.applyStyle(box);
+      return box.className = "" + box.className + " " + this.config.animateClass;
+    };
+
+    WOW.prototype.applyStyle = function(box, hidden) {
+      var delay, duration, iteration;
+      duration = box.getAttribute('data-wow-duration');
+      delay = box.getAttribute('data-wow-delay');
+      iteration = box.getAttribute('data-wow-iteration');
+      return box.setAttribute('style', this.customStyle(hidden, duration, delay, iteration));
+    };
+
+    WOW.prototype.resetStyle = function() {
+      var box, _i, _len, _ref, _results;
+      _ref = this.boxes;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        box = _ref[_i];
+        _results.push(box.setAttribute('style', 'visibility: visible;'));
+      }
+      return _results;
+    };
+
+    WOW.prototype.customStyle = function(hidden, duration, delay, iteration) {
+      var style;
+      style = hidden ? "visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;" : "visibility: visible;";
+      if (duration) {
+        style += "-webkit-animation-duration: " + duration + "; -moz-animation-duration: " + duration + "; animation-duration: " + duration + ";";
+      }
+      if (delay) {
+        style += "-webkit-animation-delay: " + delay + "; -moz-animation-delay: " + delay + "; animation-delay: " + delay + ";";
+      }
+      if (iteration) {
+        style += "-webkit-animation-iteration-count: " + iteration + "; -moz-animation-iteration-count: " + iteration + "; animation-iteration-count: " + iteration + ";";
+      }
+      return style;
+    };
+
+    WOW.prototype.scrollHandler = function() {
+      return this.scrolled = true;
+    };
+
+    WOW.prototype.scrollCallback = function() {
+      var box;
+      if (this.scrolled) {
+        this.scrolled = false;
+        this.boxes = (function() {
+          var _i, _len, _ref, _results;
+          _ref = this.boxes;
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            box = _ref[_i];
+            if (!(box)) {
+              continue;
+            }
+            if (this.isVisible(box)) {
+              this.show(box);
+              continue;
+            }
+            _results.push(box);
+          }
+          return _results;
+        }).call(this);
+        if (!this.boxes.length) {
+          return this.stop();
+        }
+      }
+    };
+
+    WOW.prototype.offsetTop = function(element) {
+      var top;
+      top = element.offsetTop;
+      while (element = element.offsetParent) {
+        top += element.offsetTop;
+      }
+      return top;
+    };
+
+    WOW.prototype.isVisible = function(box) {
+      var bottom, offset, top, viewBottom, viewTop;
+      offset = box.getAttribute('data-wow-offset') || this.config.offset;
+      viewTop = window.pageYOffset;
+      viewBottom = viewTop + this.element.clientHeight - offset;
+      top = this.offsetTop(box);
+      bottom = top + box.clientHeight;
+      return top <= viewBottom && bottom >= viewTop;
+    };
+
+    WOW.prototype.util = function() {
+      return this._util || (this._util = new Util());
+    };
+
+    WOW.prototype.disabled = function() {
+      return !this.config.mobile && this.util().isMobile(navigator.userAgent);
+    };
+
+    return WOW;
+
+  })();
+
+}).call(this);
+
+
+wow = new WOW(
+  {
+    animateClass: 'animated',
+    offset: 100
+  }
+);
+wow.init();
+</script>
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<h1 id="home"><a href="index.html">Yue Zhang</a></h1>
+			<nav id="navigation">
+				<ul>
+					<li><a href="index.html" id="current">PORTFOLIO&nbsp;</a></li>
+					<li><a href="about.html">ABOUT&nbsp;</a></li>
+					<li><a href="explore.html">EXPLORE</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+	
+		<section id="banner">
+			<h2>Etomon Design System</h2>
+				<p class="bannertxt">Build a design system from scratch</p>
+				<img class="bannerpic" src="media/etomon/eds.png" width="100%" />
+		</section>
+
+		<div class="info">
+			<div class="infocol1">
+				<p class="infosub">Type</p>
+				<p>Self-initiated project at work</p><br />
+				<p class="infosub">Duration</p>
+				<p>04/2019 - Present</p>
+			</div>
+
+			<div class="infocol2">
+				<p class="infosub">My Role</p>
+				<p>Build & Maintain style guide</p><br />
+        <p class="infosub">Tools</p>
+        <p>Figma</p>
+			</div>
+		</div>
+
+	<section class="background">	
+	    <h3>Background</h3>
+	      <p>Etomon is an online platform for students to learn with teachers 1-on-1 in real time. During my internship at Etomon, I found that <span class="spt">there lack a design system for the team to produce consistent designs efficiently.</span> So I took the initiative to build and maintain the style guide for Etomon's product.</p>
+        <img class="backgroundpic" src="media/etomon/colors.png" width="74%" /> 
+	</section>
+
+  <section class="branding">
+      <h3>Understand the branding</h3>
+      <p>Etomon aims to create a people-centered community where students are cared about by their instructors as they learn and grow together. The main users are teenagers over 15 years old and adults aged up to 35. An <span class="spt">energetic, clean, and friendly</span> visual style would perfectly fit the product.</p>
+      <img class="token" src="media/etomon/token.svg" width="100%" />
+
+  </section>
+
+  <section class="type">
+      <h3>Typography</h3>
+      
+      <div class="typography">
+        <h5>A New Font</h5>
+        <p>I started with setting up the font and its hierarchies because it was the main issue at that time. <span class="spt">Every designer was using their own font sizes and weights</span> and <span class="spt">the old fonts didn't go well with Etomon's branding.</span><br /><br />
+        
+        I set up 6 criteria for the potential new fonts and did a thorough search on <a href="https://fonts.google.com">Google Fonts</a> and <a href="https://www.fontsquirrel.com">Fonts Squirrel</a>. As a result, I found 2 fonts that meet the standards: Noto Sans and Nunito. I then coded 2*2 webpages to for the team to choose the best version.<br /><br /></p>
+        <img class="checklist" src="media/etomon/checklist.png" width="90%" />
+        <img class="winner" src="media/etomon/types.png" width="100%" />
+
+        <h5>The Scale</h5>
+        <p>Version 1 (Noto Sans for all texts) was the winner. I then moved on to created type hierarchies and had it tested with several main pages. I chose 16px as the base size, and 1.125 as the ratio after trying different commonly used ratios. Then I tweaked the scale to better fit Etomon's product.<br /><br /></p>
+        <img class="typeshow" src="media/etomon/type1.png" width="100%" />
+        <img class="typeshow" src="media/etomon/type2.png" width="100%" />
+      </div>
+  </section>
+
+  <section class="colors">
+    <h3>Colors</h3>
+      <div class="color">
+      <h5>A New Color</h5>  
+      <p>Previously, Etomon's theme color was a deep turquoise <span class="dot"></span> which looks unique at the first sight, however, most people find it <span class="spt">difficult to relate the color to the education theme</span> and <span class="spt">it doesn't provide enough contrast</span> on a white background. So after discussing with team, I set out to search for a new theme color.<br /><br />
+
+      Again, we were looking for a color that makes people feel <span class="spt">energetic, clean, and friendly</span>. Plus, it is expected to be associated with the learning theme as perceived by most people. With these in mind, I finally picked 4 potential colors and tried them on our product.</p>
+      <img class="pttcolors" src="media/etomon/4colors.png" width="100%" />
+
+      <p>This time I used surveys to help us make the decision. I sent questionnaires containing these 4 different color themes and our product introduction to our potential users and collected 237 feedbacks. As a result, <span class="spt">we chose the green as our new theme color </span>considering it is most liked and people's impression of it matched with our visual style keywords.</p>
+      <img class="ptt2colors" src="media/etomon/2colors.png" width="100%" />
+
+      <h5>Color Palette</h5>
+      <p>Our primary palette is comprised of our logo green, a dark green, and white. The dark green was added so that we could use green on texts while conforming to WCAG 2.0. Orange is used for warnings and alerts and red is for notification.</p>
+      <img class="colorinv" src="media/etomon/colorinv.png" width="100%" />
+    </div>
+  </section>
+
+  <section class="spacing">
+    <h3>Spacing</h3>
+      <p>A spacing system is important because it creates a rhythm for the page, helps people understand information relationships, and it contributes to the product's visual identity. I created the vertical spacing scale while experimenting with different spacings on many pages, and finally decided on the 10-level spacing scale. For horizontal spacings, a 12-column grid is applied to laptop versions while the margin for each page may vary depending on the page's information desity.</p>
+      <img class="spacingsc" src="media/etomon/spacingsc.png" width="100%" />
+      <img class="grid1" src="media/etomon/grid80.png" width="100%" />
+      <img class="grid2" src="media/etomon/grid100.png" width="100%" />
+  </section>
+
+
+	   <div id="wrapper">
+       		<section class="nextproject">
+       		<p><a href="artbook.html">Next project: My Artbook >> </a></p> 
+	   		</section>
+	   </div>	
+    
+    <footer class="foot">
+    		<p>Find me: yuezhangux@gmail.com &nbsp;|&nbsp; <a href="http://www.linkedin.com/in/yuezhang-ux" >LinkedIn</a><br />
+    		Website Design © 2020 Yue Zhang</p>
+    </footer>
+</body>
+</html>

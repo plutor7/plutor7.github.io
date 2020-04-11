@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Yue Zhang</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/libs/animate.css" />
+	<link href="https://fonts.googleapis.com/css?family=NTR" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/wow.min.js"></script>
+<script>	
+	(function() {
+  var Util,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+  Util = (function() {
+    function Util() {}
+
+    Util.prototype.extend = function(custom, defaults) {
+      var key, value;
+      for (key in custom) {
+        value = custom[key];
+        if (value != null) {
+          defaults[key] = value;
+        }
+      }
+      return defaults;
+    };
+
+    Util.prototype.isMobile = function(agent) {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
+    };
+
+    return Util;
+
+  })();
+
+  this.WOW = (function() {
+    WOW.prototype.defaults = {
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true
+    };
+
+    function WOW(options) {
+      if (options == null) {
+        options = {};
+      }
+      this.scrollCallback = __bind(this.scrollCallback, this);
+      this.scrollHandler = __bind(this.scrollHandler, this);
+      this.start = __bind(this.start, this);
+      this.scrolled = true;
+      this.config = this.util().extend(options, this.defaults);
+    }
+
+    WOW.prototype.init = function() {
+      var _ref;
+      this.element = window.document.documentElement;
+      if ((_ref = document.readyState) === "interactive" || _ref === "complete") {
+        return this.start();
+      } else {
+        return document.addEventListener('DOMContentLoaded', this.start);
+      }
+    };
+
+    WOW.prototype.start = function() {
+      var box, _i, _len, _ref;
+      this.boxes = this.element.getElementsByClassName(this.config.boxClass);
+      if (this.boxes.length) {
+        if (this.disabled()) {
+          return this.resetStyle();
+        } else {
+          _ref = this.boxes;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            box = _ref[_i];
+            this.applyStyle(box, true);
+          }
+          window.addEventListener('scroll', this.scrollHandler, false);
+          window.addEventListener('resize', this.scrollHandler, false);
+          return this.interval = setInterval(this.scrollCallback, 50);
+        }
+      }
+    };
+
+    WOW.prototype.stop = function() {
+      window.removeEventListener('scroll', this.scrollHandler, false);
+      window.removeEventListener('resize', this.scrollHandler, false);
+      if (this.interval != null) {
+        return clearInterval(this.interval);
+      }
+    };
+
+    WOW.prototype.show = function(box) {
+      this.applyStyle(box);
+      return box.className = "" + box.className + " " + this.config.animateClass;
+    };
+
+    WOW.prototype.applyStyle = function(box, hidden) {
+      var delay, duration, iteration;
+      duration = box.getAttribute('data-wow-duration');
+      delay = box.getAttribute('data-wow-delay');
+      iteration = box.getAttribute('data-wow-iteration');
+      return box.setAttribute('style', this.customStyle(hidden, duration, delay, iteration));
+    };
+
+    WOW.prototype.resetStyle = function() {
+      var box, _i, _len, _ref, _results;
+      _ref = this.boxes;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        box = _ref[_i];
+        _results.push(box.setAttribute('style', 'visibility: visible;'));
+      }
+      return _results;
+    };
+
+    WOW.prototype.customStyle = function(hidden, duration, delay, iteration) {
+      var style;
+      style = hidden ? "visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;" : "visibility: visible;";
+      if (duration) {
+        style += "-webkit-animation-duration: " + duration + "; -moz-animation-duration: " + duration + "; animation-duration: " + duration + ";";
+      }
+      if (delay) {
+        style += "-webkit-animation-delay: " + delay + "; -moz-animation-delay: " + delay + "; animation-delay: " + delay + ";";
+      }
+      if (iteration) {
+        style += "-webkit-animation-iteration-count: " + iteration + "; -moz-animation-iteration-count: " + iteration + "; animation-iteration-count: " + iteration + ";";
+      }
+      return style;
+    };
+
+    WOW.prototype.scrollHandler = function() {
+      return this.scrolled = true;
+    };
+
+    WOW.prototype.scrollCallback = function() {
+      var box;
+      if (this.scrolled) {
+        this.scrolled = false;
+        this.boxes = (function() {
+          var _i, _len, _ref, _results;
+          _ref = this.boxes;
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            box = _ref[_i];
+            if (!(box)) {
+              continue;
+            }
+            if (this.isVisible(box)) {
+              this.show(box);
+              continue;
+            }
+            _results.push(box);
+          }
+          return _results;
+        }).call(this);
+        if (!this.boxes.length) {
+          return this.stop();
+        }
+      }
+    };
+
+    WOW.prototype.offsetTop = function(element) {
+      var top;
+      top = element.offsetTop;
+      while (element = element.offsetParent) {
+        top += element.offsetTop;
+      }
+      return top;
+    };
+
+    WOW.prototype.isVisible = function(box) {
+      var bottom, offset, top, viewBottom, viewTop;
+      offset = box.getAttribute('data-wow-offset') || this.config.offset;
+      viewTop = window.pageYOffset;
+      viewBottom = viewTop + this.element.clientHeight - offset;
+      top = this.offsetTop(box);
+      bottom = top + box.clientHeight;
+      return top <= viewBottom && bottom >= viewTop;
+    };
+
+    WOW.prototype.util = function() {
+      return this._util || (this._util = new Util());
+    };
+
+    WOW.prototype.disabled = function() {
+      return !this.config.mobile && this.util().isMobile(navigator.userAgent);
+    };
+
+    return WOW;
+
+  })();
+
+}).call(this);
+
+
+wow = new WOW(
+  {
+    animateClass: 'animated',
+    offset: 100
+  }
+);
+wow.init();
+</script>
+	
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<h1 id="home"><a href="index.html"><img class="logo" src="media/yue.svg" width="100%"></a></h1>
+			<nav id="navigation">
+				<ul>
+					<li><a href="index.html" id="current">PORTFOLIO&nbsp;</a></li>
+					<li><a href="about.html">ABOUT&nbsp;</a></li>
+					<li><a href="explore.html">EXPLORE</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section id="face">
+			<h2>Hello, I'm <span class="span1">Yue Zhang</span>,<br />
+			a UX designer who excels at <span class="span2">critical thinking</span><br />
+			 and <span class="span3">empathic design</span>
+			</h2>
+		</section>
+		
+    <div class="works0">
+      <section class="card wow fadeInUp" data-wow-duration="1s"> 
+        <a href="etomonclass.html"><img class="proj0" src="media/etoclass.png" width="100%"></a>
+          <div class="title0">
+            <div class="center0">
+            <a href="etomonclass.html"><h4>Etomon</h4></a>
+            <p class="des">Design an easy-to-use class managing page in 7 days.</p>
+            <p class="tags">UX | UI DESIGN | WEBSITE</p>
+            </div>
+          </div>
+      </section>
+    </div>
+
+		<div class="works1">
+			<section class="card wow fadeInUp" data-wow-duration="1s"> 
+				<a href="artbook.html"><img class="proj1" src="media/museum.png" width="100%"></a>
+  				<div class="title1">
+  					<div class="center1">
+  					<a href="artbook.html"><h4>My Artbook</h4></a>
+  					<p class="des">A mobile app for art museum visitors to discover hidden stories, keep wonderful memories, and share happy moments.</p>
+  					<p class="tags">UX | UI DESIGN | MOBILE</p>
+  					</div>
+  				</div>
+			</section>
+		</div>
+
+		<div class="works2">
+			<section class="card wow fadeInUp" data-wow-duration="1s">
+				<a href="blade.html"><img class="proj2" src="media/blade.png" width="100%"></a>
+				<div class="title2">
+					<div class="center2">
+					<a href="blade.html"><h4>Blade</h4></a>
+					<p class="des">A VR game that teaches real movements in Chinese swordplay.</p>
+					<p class="tags">UX DESIGN | VR GAME</p>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- <div class="works3">
+			<section class="card wow fadeInUp" data-wow-duration="1s">
+  				<a href="em.html"><img class="proj3" src="media/em.png" width="100%"></a>
+				<div class="title3">
+					<div class="center3">
+					<a href="em.html"><h4>Easy Maintenance</h4></a>
+					<p class="des">A mobile app for apartment renters to easily report maintenance issues.</p>
+					<p class="tags">UI | UX | MOTION DESIGN | MOBILE</p>
+					</div>
+				</div> -->
+			</section>
+    </div>
+
+	</div>
+    <footer class="foot">
+    		<p>Find me: yuezhangux@gmail.com &nbsp;|&nbsp; <a href="http://www.linkedin.com/in/yuezhang-ux" >LinkedIn</a><br />
+    		Website Design © 2020 Yue Zhang</p>
+    </footer>
+</body>
+</html>

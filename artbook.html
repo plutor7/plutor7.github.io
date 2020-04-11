@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>My Artbook</title>
+	<link rel="stylesheet" href="css/artbook.css" />
+	<link rel="stylesheet" href="css/libs/animate.css" />
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=NTR" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script>	
+	(function() {
+  var Util,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+
+  Util = (function() {
+    function Util() {}
+
+    Util.prototype.extend = function(custom, defaults) {
+      var key, value;
+      for (key in custom) {
+        value = custom[key];
+        if (value != null) {
+          defaults[key] = value;
+        }
+      }
+      return defaults;
+    };
+
+    Util.prototype.isMobile = function(agent) {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
+    };
+
+    return Util;
+
+  })();
+
+  this.WOW = (function() {
+    WOW.prototype.defaults = {
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true
+    };
+
+    function WOW(options) {
+      if (options == null) {
+        options = {};
+      }
+      this.scrollCallback = __bind(this.scrollCallback, this);
+      this.scrollHandler = __bind(this.scrollHandler, this);
+      this.start = __bind(this.start, this);
+      this.scrolled = true;
+      this.config = this.util().extend(options, this.defaults);
+    }
+
+    WOW.prototype.init = function() {
+      var _ref;
+      this.element = window.document.documentElement;
+      if ((_ref = document.readyState) === "interactive" || _ref === "complete") {
+        return this.start();
+      } else {
+        return document.addEventListener('DOMContentLoaded', this.start);
+      }
+    };
+
+    WOW.prototype.start = function() {
+      var box, _i, _len, _ref;
+      this.boxes = this.element.getElementsByClassName(this.config.boxClass);
+      if (this.boxes.length) {
+        if (this.disabled()) {
+          return this.resetStyle();
+        } else {
+          _ref = this.boxes;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            box = _ref[_i];
+            this.applyStyle(box, true);
+          }
+          window.addEventListener('scroll', this.scrollHandler, false);
+          window.addEventListener('resize', this.scrollHandler, false);
+          return this.interval = setInterval(this.scrollCallback, 50);
+        }
+      }
+    };
+
+    WOW.prototype.stop = function() {
+      window.removeEventListener('scroll', this.scrollHandler, false);
+      window.removeEventListener('resize', this.scrollHandler, false);
+      if (this.interval != null) {
+        return clearInterval(this.interval);
+      }
+    };
+
+    WOW.prototype.show = function(box) {
+      this.applyStyle(box);
+      return box.className = "" + box.className + " " + this.config.animateClass;
+    };
+
+    WOW.prototype.applyStyle = function(box, hidden) {
+      var delay, duration, iteration;
+      duration = box.getAttribute('data-wow-duration');
+      delay = box.getAttribute('data-wow-delay');
+      iteration = box.getAttribute('data-wow-iteration');
+      return box.setAttribute('style', this.customStyle(hidden, duration, delay, iteration));
+    };
+
+    WOW.prototype.resetStyle = function() {
+      var box, _i, _len, _ref, _results;
+      _ref = this.boxes;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        box = _ref[_i];
+        _results.push(box.setAttribute('style', 'visibility: visible;'));
+      }
+      return _results;
+    };
+
+    WOW.prototype.customStyle = function(hidden, duration, delay, iteration) {
+      var style;
+      style = hidden ? "visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;" : "visibility: visible;";
+      if (duration) {
+        style += "-webkit-animation-duration: " + duration + "; -moz-animation-duration: " + duration + "; animation-duration: " + duration + ";";
+      }
+      if (delay) {
+        style += "-webkit-animation-delay: " + delay + "; -moz-animation-delay: " + delay + "; animation-delay: " + delay + ";";
+      }
+      if (iteration) {
+        style += "-webkit-animation-iteration-count: " + iteration + "; -moz-animation-iteration-count: " + iteration + "; animation-iteration-count: " + iteration + ";";
+      }
+      return style;
+    };
+
+    WOW.prototype.scrollHandler = function() {
+      return this.scrolled = true;
+    };
+
+    WOW.prototype.scrollCallback = function() {
+      var box;
+      if (this.scrolled) {
+        this.scrolled = false;
+        this.boxes = (function() {
+          var _i, _len, _ref, _results;
+          _ref = this.boxes;
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            box = _ref[_i];
+            if (!(box)) {
+              continue;
+            }
+            if (this.isVisible(box)) {
+              this.show(box);
+              continue;
+            }
+            _results.push(box);
+          }
+          return _results;
+        }).call(this);
+        if (!this.boxes.length) {
+          return this.stop();
+        }
+      }
+    };
+
+    WOW.prototype.offsetTop = function(element) {
+      var top;
+      top = element.offsetTop;
+      while (element = element.offsetParent) {
+        top += element.offsetTop;
+      }
+      return top;
+    };
+
+    WOW.prototype.isVisible = function(box) {
+      var bottom, offset, top, viewBottom, viewTop;
+      offset = box.getAttribute('data-wow-offset') || this.config.offset;
+      viewTop = window.pageYOffset;
+      viewBottom = viewTop + this.element.clientHeight - offset;
+      top = this.offsetTop(box);
+      bottom = top + box.clientHeight;
+      return top <= viewBottom && bottom >= viewTop;
+    };
+
+    WOW.prototype.util = function() {
+      return this._util || (this._util = new Util());
+    };
+
+    WOW.prototype.disabled = function() {
+      return !this.config.mobile && this.util().isMobile(navigator.userAgent);
+    };
+
+    return WOW;
+
+  })();
+
+}).call(this);
+
+
+wow = new WOW(
+  {
+    animateClass: 'animated',
+    offset: 100
+  }
+);
+wow.init();
+</script>
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<h1 id="home"><a href="index.html"><img class="logo" src="media/yue.svg" width="100%"></a></h1>
+			<nav id="navigation">
+				<ul>
+					<li><a href="index.html" id="current">PORTFOLIO&nbsp;</a></li>
+					<li><a href="about.html">ABOUT&nbsp;</a></li>
+					<li><a href="explore.html">EXPLORE</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+	<div id="wrapper-main">	
+		<section id="banner">
+			<h2>My Artbook</h2>
+				<p class="bannertxt">A mobile app for art museum visitors to discover hidden stories, keep wonderful memories, and share happy moments.
+				</p>
+				<img class="bannerpic" src="media/museum/mockup.png" width="100%" />
+		</section>
+		<div class="info">
+			<div class="infocol1">
+				<p class="infosub">Team</p>
+				<p>Independent work</p>
+			</div>
+
+			<div class="infocol2">
+				<p class="infosub">Type</p>
+				<p>Capstone project</p><br />
+				<p class="infosub">Duration</p>
+				<p>01/2018-05/2018</p>
+			</div>
+			
+			<div class="infocol3">
+				<p class="infosub">My Role</p>
+				<p>Research</p>
+				<p>Prototyping</p>
+				<p>UI Design</p>
+				<p>Usability Testing</p>
+			</div>
+			<div class="infocol4">
+				<p class="infosub">Tools</p>
+				<p>Adobe Illustrator</p>
+				<p>Sketch</p>
+				<p>InVision</p>
+				<p>Realtime Board</p>
+			</div>
+		</div>
+	</div>
+	   <section class="story">	
+	      <h3>The Story</h3>
+	      	<div class="story1">
+	      		<p>I am a travel enthusiast and I love visiting local museums when I go to a new city. In the summer of 2017, I travelled to 9 cities with locations in 3 different countries. First, in Xi'an, China, I went to an exhibition where I met this painting <span class="notes">(Source:<a href="https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Weizenfeld_mit_Zypressen4.jpeg#/media/File:Van_Gogh_-_Weizenfeld_mit_Zypressen4.jpeg"><i>Wikipedia</i></a>. This one looks like the painting I saw at the exhibition).</span>👉<br /><br /></p>
+	      			<img class="vg1" src="media/museum/vg1.jpg" width="200px" />
+	  	  	</div>
+	    	<div class="story2">
+	      		<p>Actually it didn't catch my attention until 2 weeks later when I travelled to Melbourne, Australia. There I visited the National Gallery of Victoria where a special exhibition of Van Gogh was held. When I saw this painting, I suddenly realized I saw it a few days ago (Let me take a picture!).👉<br /><br /></p>
+		  	<img class="vg2" src="media/museum/vg2.jpg" width="200px" />
+	      	</div>
+	      	<div class="story3">
+	      		<p>After my travel in Australia ended, I flew back to the US. I landed at New York and had a chance to visit several tourist attractions with my friends. On the second floor of the Met, I saw this painting hanging there. 👉<br /><br /></p>
+	      		<img class="vg3" src="media/museum/vg3.jpg" width="200px" />
+	      	</div>
+	      	<div class="story4">
+	      		<p>I met this painting 3 times at different places in a month! <br />How would this happen?<br /><br /></p>
+	      	</div>
+
+	      	<div class="story5">
+		  		<p class="wow fadeInUp" data-wow-duration="1s">Well, the answer is that Van Gogh created 3 versions of this painting (I didn't know it until I found <a href="https://en.wikipedia.org/wiki/Wheat_Field_with_Cypresses"><i>this</i></a> on Wikipedia). And I realized there could be so many hidden stories behind the paintings.</p>
+		  	</div>
+	   </section>
+	
+	<div id="wrapper-main">
+	   <section class="challenge">
+	   <h3>The Challenge</h3>
+	   <p>Due to space limitation, only very limited information is provided to art museum visitors directly as they physically visit a museum.
+	   Art museum visitors need to take <span class="imtxt">a considerable length of time</span> and <span class="imtxt">cognitive energy</span> to search and filter internet information if they want to know more about an artwork.</p>
+	   </section>
+	</div>   
+	   <section class="UI">
+	      <h3>The Solution</h3>
+	      <p>My Artbook is a mobile app that helps art museum visitors to quickly find information of an artwork they would like to know. Besides, art museum visitors can also "favorite" a piece of artwork, create their own art collections, and share an artwork with their families and friends.<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><span class="imtxt">Interactive prototype 👉</span><br /><br />
+	      Try to take a photo of the paiting on the wall (this is just a mockup) and find the information of it. Make it your favorite.<br /><br /> 
+	      You could also do a manual search. Search by artist's name (let's take "Henri Rousseau" for example), and find the painting he created in 1897. Try to add some notes and save them in a new collection.<br /><br /> 
+	      If you have some more time, try sharing the first painting in your "favorites" to Instagram.<br />
+	  	  (For testing purpose, this prototype was designed for iPhone SE screen)</p>
+	      <img class="solutionpic" src="media/museum/solution.png" width="400px" />
+	      <iframe class="prototype" width="396" height="858" src="https://invis.io/BZHPCXKJXCQ" frameborder="0" allowfullscreen></iframe>
+	   </section>
+	<div id="wrapper-main">
+	   <section class="discovery">	
+	      <h3>Research</h3>
+	      <div class="literature">
+	      <h4 class="longh4">Literature Review</h4>
+	      <p>I conducted a literature review to understand how museum researchers have progressed in providing supplemental information using evolving technologies. <br /><br /> After this research, I narrowed the scope of my project to mobile app design because mobile devices could provide more personalized services for museum visitors.</p>
+	      <img class="literaturepic" src="media/museum/literaturepic.png" width="400px" />
+	      </div>
+	      
+	      <div class="interviews">
+		  <h4 class="longh4">1-on-1 Interviews</h4>
+		  <p>In order to discover how art museum visitors feel about their past experiences in information acquiring and what they do with the information, I conducted semi-structured interviews with 8 participants who had various backgrounds.</p>
+	      <img class="interviewpic" src="media/museum/interviewpic.png" width="400px" />
+	  	  </div>
+	  	  
+		  <div class="affinity">
+	   	  	<h4 class="longh4">Understanding the Data</h4>
+	   	  	<p>I interpreted interview data by making affinity diagram using <i><a href="https://realtimeboard.com/index/">Realtime Board</a></i>. It helped me to collect useful user expectations and get deaper understanding of the themes of the story. <br /><br /></p>
+	   	  	<figure class="afpic">
+	      	<a href="https://realtimeboard.com/welcomeonboard/ty1IYgzfp7eKjSdda2EEi9AAyzDgUumaEUmVjNSGUJQMZDXfAzKHIuQ1bydW0GrN"><img src="media/museum/afpic.jpg" width="100%" border="0"/></a>
+	      	<figcaption>Click on image to see details</figcaption>
+	      	</figure>
+	   	  </div>
+	   </section>
+	</div>
+	   <section class="scoping">
+	   	  <h3>Scoping</h3>
+	   	  <div class="personas">
+	      	<div class="photoframe">
+		      <figure>
+		      <img class="personapic" src="media/museum/persona1.png" width="100%" />
+		      </figure>
+		      <figure>
+		      <img class="personapic" src="media/museum/persona2.png" width="100%" />
+		      </figure>
+		  	</div>
+		      <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		      <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		      <script type="text/javascript" src="js/slick.min.js"></script>
+		      <script type="text/javascript">
+		      $(document).ready(function(){
+		      $('.photoframe').slick({
+		      dots: false,
+		      infinite: true,
+		      arrows: true,
+		      speed: 500,
+		      fade: true,
+		      cssEase: 'linear'
+              });
+              }); </script>
+	      	<h4 class="shorth5">Personas</h4>
+	      	<p class="personatxt">From the interviews I found that people go to art museums mainly for two reasons: to study, or to relax. Two personas reflecting the two main types of visitors were created.</p>
+		  </div>
+
+		  <div class="insights">
+		  	<img class="needspic" src="media/museum/needs.png" width="80%"/>
+		  	<h4 class="shorth5">Insights</h4>
+		  	<p>Thinking from the perspective of our primary personas, I prioritized user needs collected from interviews and decided to focus on 7 needs for my project.</p>
+	      </div>
+	   </section>
+	<div id="wrapper-main">
+	   <section class="vision">	
+	      <h3>Ideation</h3>
+	      <p class="visionp1">Incorporating 7 features in one product is not an easy work. I needed to group similar functions together so as to make the information architecture simple and clear to even first-time users.<br /><br />  
+	      The user needs were organized into 4 categories. Then I came up with solutions corresponding to the user needs. </p>
+	      <img class="solutionp1" src="media/museum/solutions.png" width="90%" />
+	   </section>
+ 	</div>
+	   <section class="wireframing">
+	      <h3>Wireframing</h3>
+	      <p class="wf1">I used Adobe Illustrator to picturize the flows of my proposed solutions. 
+	      I tried to make each task as simple and short as possible.</p>
+	   	  <img class="wf2" src="media/museum/wireframe.png" width="500px" />
+	   </section>
+	<div id="wrapper-main">  
+		<section class="testing">
+		   <h3>Design Evaluation</h3>
+	       <p>I evaluated the usability of my prototype with 10 art museum visitors. Each participant completed 5 tasks on the prototype while thinking aloud. I also used validated questionnaire to measure the overall user experience.<br /><br />
+	       According to the SUS score, the overall experience of the prototype ranks A, which means the design is very user-friendly for first-time users.
+	       </p>
+	       <img class="imprpic" src="media/museum/improvements.png" width="500px" />
+	    </section>
+	</div>    
+	   <section class="reflection">	
+	      <h3>The Reflections</h3>
+	      <p>This is my first large independent project. If I could start over again, I would do a quick user testing before I start working on the UI design. I am pretty sure the final outcome would be a lot better with this improvement.<br /><br />
+	      By the time of the research part began, there was no similar product in the market. If I had enough time and resources, I really want to make My Artbook a real product. I can tell how useful and helpful it would be in art education and cultural promotion. I can imagine it bringing delightful moments to museum visitors and passing the delight to those people outside the museum's walls.
+	      </p>
+	   </section>
+	   
+	   <div id="wrapper">
+       		<section class="nextproject">
+       		<p><a href="blade.html">Next project: Blade >> </a></p> 
+	   		</section>
+	   </div>	
+    
+    <footer class="foot">
+    		<p>Find me: yuezhangux@gmail.com &nbsp;|&nbsp; <a href="http://www.linkedin.com/in/yuezhang-ux" >LinkedIn</a><br />
+    		Website Design © 2020 Yue Zhang</p>
+    </footer>
+</body>
+</html>
