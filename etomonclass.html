@@ -1,343 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Etomon Website Design</title>
+  <link rel="stylesheet" href="css/grid.css" />
 	<link rel="stylesheet" href="css/etomonclass.css" />
 	<link rel="stylesheet" href="css/libs/animate.css" />
 	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=NTR" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=NTR&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script>	
-	(function() {
-  var Util,
-    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-
-  Util = (function() {
-    function Util() {}
-
-    Util.prototype.extend = function(custom, defaults) {
-      var key, value;
-      for (key in custom) {
-        value = custom[key];
-        if (value != null) {
-          defaults[key] = value;
-        }
-      }
-      return defaults;
-    };
-
-    Util.prototype.isMobile = function(agent) {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
-    };
-
-    return Util;
-
-  })();
-
-  this.WOW = (function() {
-    WOW.prototype.defaults = {
-      boxClass: 'wow',
-      animateClass: 'animated',
-      offset: 0,
-      mobile: true
-    };
-
-    function WOW(options) {
-      if (options == null) {
-        options = {};
-      }
-      this.scrollCallback = __bind(this.scrollCallback, this);
-      this.scrollHandler = __bind(this.scrollHandler, this);
-      this.start = __bind(this.start, this);
-      this.scrolled = true;
-      this.config = this.util().extend(options, this.defaults);
-    }
-
-    WOW.prototype.init = function() {
-      var _ref;
-      this.element = window.document.documentElement;
-      if ((_ref = document.readyState) === "interactive" || _ref === "complete") {
-        return this.start();
-      } else {
-        return document.addEventListener('DOMContentLoaded', this.start);
-      }
-    };
-
-    WOW.prototype.start = function() {
-      var box, _i, _len, _ref;
-      this.boxes = this.element.getElementsByClassName(this.config.boxClass);
-      if (this.boxes.length) {
-        if (this.disabled()) {
-          return this.resetStyle();
-        } else {
-          _ref = this.boxes;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            box = _ref[_i];
-            this.applyStyle(box, true);
-          }
-          window.addEventListener('scroll', this.scrollHandler, false);
-          window.addEventListener('resize', this.scrollHandler, false);
-          return this.interval = setInterval(this.scrollCallback, 50);
-        }
-      }
-    };
-
-    WOW.prototype.stop = function() {
-      window.removeEventListener('scroll', this.scrollHandler, false);
-      window.removeEventListener('resize', this.scrollHandler, false);
-      if (this.interval != null) {
-        return clearInterval(this.interval);
-      }
-    };
-
-    WOW.prototype.show = function(box) {
-      this.applyStyle(box);
-      return box.className = "" + box.className + " " + this.config.animateClass;
-    };
-
-    WOW.prototype.applyStyle = function(box, hidden) {
-      var delay, duration, iteration;
-      duration = box.getAttribute('data-wow-duration');
-      delay = box.getAttribute('data-wow-delay');
-      iteration = box.getAttribute('data-wow-iteration');
-      return box.setAttribute('style', this.customStyle(hidden, duration, delay, iteration));
-    };
-
-    WOW.prototype.resetStyle = function() {
-      var box, _i, _len, _ref, _results;
-      _ref = this.boxes;
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        box = _ref[_i];
-        _results.push(box.setAttribute('style', 'visibility: visible;'));
-      }
-      return _results;
-    };
-
-    WOW.prototype.customStyle = function(hidden, duration, delay, iteration) {
-      var style;
-      style = hidden ? "visibility: hidden; -webkit-animation-name: none; -moz-animation-name: none; animation-name: none;" : "visibility: visible;";
-      if (duration) {
-        style += "-webkit-animation-duration: " + duration + "; -moz-animation-duration: " + duration + "; animation-duration: " + duration + ";";
-      }
-      if (delay) {
-        style += "-webkit-animation-delay: " + delay + "; -moz-animation-delay: " + delay + "; animation-delay: " + delay + ";";
-      }
-      if (iteration) {
-        style += "-webkit-animation-iteration-count: " + iteration + "; -moz-animation-iteration-count: " + iteration + "; animation-iteration-count: " + iteration + ";";
-      }
-      return style;
-    };
-
-    WOW.prototype.scrollHandler = function() {
-      return this.scrolled = true;
-    };
-
-    WOW.prototype.scrollCallback = function() {
-      var box;
-      if (this.scrolled) {
-        this.scrolled = false;
-        this.boxes = (function() {
-          var _i, _len, _ref, _results;
-          _ref = this.boxes;
-          _results = [];
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            box = _ref[_i];
-            if (!(box)) {
-              continue;
-            }
-            if (this.isVisible(box)) {
-              this.show(box);
-              continue;
-            }
-            _results.push(box);
-          }
-          return _results;
-        }).call(this);
-        if (!this.boxes.length) {
-          return this.stop();
-        }
-      }
-    };
-
-    WOW.prototype.offsetTop = function(element) {
-      var top;
-      top = element.offsetTop;
-      while (element = element.offsetParent) {
-        top += element.offsetTop;
-      }
-      return top;
-    };
-
-    WOW.prototype.isVisible = function(box) {
-      var bottom, offset, top, viewBottom, viewTop;
-      offset = box.getAttribute('data-wow-offset') || this.config.offset;
-      viewTop = window.pageYOffset;
-      viewBottom = viewTop + this.element.clientHeight - offset;
-      top = this.offsetTop(box);
-      bottom = top + box.clientHeight;
-      return top <= viewBottom && bottom >= viewTop;
-    };
-
-    WOW.prototype.util = function() {
-      return this._util || (this._util = new Util());
-    };
-
-    WOW.prototype.disabled = function() {
-      return !this.config.mobile && this.util().isMobile(navigator.userAgent);
-    };
-
-    return WOW;
-
-  })();
-
-}).call(this);
-
-
-wow = new WOW(
-  {
-    animateClass: 'animated',
-    offset: 100
-  }
-);
-wow.init();
-</script>
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<div id="wrapper">
-		<header>
-			<h1 id="home"><a href="index.html"><img class="logo" src="media/yue.svg" width="100%"></a></h1>
-			<nav id="navigation">
-				<ul>
-					<li><a href="index.html" id="current">PORTFOLIO&nbsp;</a></li>
-					<li><a href="about.html">ABOUT&nbsp;</a></li>
-					<li><a href="explore.html">EXPLORE</a></li>
-				</ul>
-			</nav>
-		</header>
+    <header>
+      <div class="navigation">
+        <div class="logo"><a href="index.html"><img src="media/yue.svg" width="100%"></a></div>
+          <nav class="pages">
+            <ul>
+              <li><a href="index.html" id="current">WORK&nbsp;</a></li>
+              <li><a href="blog.html">BLOG&nbsp;</a></li>
+              <li><a href="explore.html">EXPLORE</a></li>
+            </ul>
+          </nav>
+      </div>
+    </header>
 	</div>
 	
-    <section id="banner">
-      <h2>Etomon</h2>
-        <p class="bannertxt">Design an easy-to-use class managing page in 7 days
-        </p>
-        <img class="bannerpic" src="media/etomon/class/cover.png" width="100%" />
-    </section>
-  <div id="wrapper-main">   
-    <div class="info">
-      <div class="infocol1">
-        <p class="infosub">Duration</p>
+  <section class="container-fluid pb-5">
+    <div class="row">
+      <div class="bannertxt mt-4 mt-md-0">
+        <h1>Etomon</h1>
+        <p class="mb-0 mb-md-5">Design an easy-to-use class managing page in 7 days</p>
+      </div>
+      <div class="col-12 offset-md-4 col-md-8 p-0">
+        <img src="media/etomon/class/cover.png" width="100%">
+      </div>
+    </div>
+    <div class="row subinfo mb-4">
+      <div class="mr-4 my-3" style="width:80px">
+        <h4 class="mb-1">Duration</h4>
         <p>7 days</p>
       </div>
-
-      <div class="infocol2">
-        <p class="infosub">Team</p>
+      <div class="mr-4 my-3" style="width:90px">
+        <h4 class="mb-1">Team</h4>
         <p>Fozia Akter<br />
            Helen Tang<br />
            Yue Zhang</p>
       </div>
-      
-      <div class="infocol3">
-        <p class="infosub">My Role</p>
+      <div class="mr-4 my-3" style="width:200px">
+        <h4 class="mb-1">My Role</h4>
         <p>Product Strategy</p>
         <p>Information Architecture</p>
         <p>User Experience Design</p>
         <p>Visual Design</p>
         <p>Usability Testing</p>
       </div>
-      <div class="infocol4">
-        <p class="infosub">Tools</p>
+      <div class="my-3" style="width:130px">
+        <h4 class="mb-1">Tools</h4>
         <p>Figma</p>
         <p>Pen & Paper</p>
         <p>Adobe Illustrator</p>
       </div>
     </div>
-  </div>
+  </section>
 
+	<section class="overview container-fluid py-5">	
+    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      <h2 class="my-3 my-sm-4">Overview</h2>
+      <p class="overviewtxt mb-2 mb-sm-4">Etomon is an e-learning platform where students and teachers from different countries and areas connect and learn 1-on-1 in realtime. Teachers on the platform can set up their courses and lessons, while students can schedule lessons with the teachers to enjoy the online learning experience.<br /><br />
 
-	<section class="overview">	
-	    <h3>Overview</h3>
-	      <p class="overviewtxt">Etomon is an e-learning platform where students and teachers from different countries and areas connect and learn 1-on-1 in realtime. Teachers on the platform can set up their courses and lessons, while students can schedule lessons with the teachers to enjoy the online learning experience.<br /><br />
+       In this project, I was tasked to design the My Classes page for student users to manage class schedules and check class records. Because we were aiming to launch in 3 months, the time frame for this project was extremely tight. <span class="spt">I had to finish it in 7 days</span>.<br /><br />
 
-         In this project, I was tasked to design the My Classes page for student users to manage class schedules and check class records. Because we were aiming to launch in 3 months, the time frame for this project was extremely tight. <span class="spt">I had to finish it in 7 days</span>.<br /><br />
-
-        My team and I worked closely on this project, and I delivered our design to the development team right on time. Now the design is live on Etomon's website.</p>
-
-        <div class="feature1">
-          <img class="featurepic" src="media/etomon/class/schedule.gif" width="100%" />
-          <h4>Class schedule & Learning history</h4>
-          <p class="featuretxt">Group upcoming classes by week to provide an efficient browsing experience. Sort history classes by course to keep records organized.</p>
+      My team and I worked closely on this project, and I delivered our design to the development team right on time. Now the design is live on Etomon's website.</p>
+    </div>
+    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-10 offset-lg-1">    
+      <div class="row">
+        <div class="my-4 my-lg-5 d-flex align-items-lg-center flex-wrap">
+          <div class="col-12 col-lg-4">          
+            <h3 class="my-2">Class schedule & Record</h3>
+            <p class="mb-3">Group upcoming classes by week to provide an efficient browsing experience. Sort history classes by course to keep records organized.</p>
+          </div>
+          <div class="col-12 col-lg-8">
+            <img class="featurepic" src="media/etomon/class/schedule.gif" width="100%" />
+          </div>      
         </div>
-        
-        <div class="feature2">
-          <img class="featurepic" src="media/etomon/class/manage.gif" width="100%" />
-          <h4>Schedule management</h4>
-          <p class="featuretxt">Incorporate multiple essential features in one place while keeping a simple and clean interface.</p>
+      </div>
+      <div class="row">
+        <div class="my-4 my-lg-5 d-flex align-items-lg-center flex-wrap">
+          <div class="col-12 col-lg-4">         
+            <h3 class="my-2">Schedule management</h3>
+            <p class="mb-3">Incorporate multiple essential features in one place while keeping a simple and clean interface.</p>
+          </div>
+          <div class="col-12 col-lg-8">
+            <img class="featurepic" src="media/etomon/class/manage.gif" width="100%" />
+          </div> 
         </div>
-
-        <div class="feature3">
-          <img class="featurepic" src="media/etomon/class/refund.gif" width="100%" />  
-          <h4>Refund claiming</h4>
-          <p class="featuretxt">Guide users through the refund policy before filling out the refund claim form.</p>
+      </div>
+      <div class="row">
+        <div class="my-4 my-lg-5 d-flex align-items-lg-center flex-wrap">
+          <div class="col-12 col-lg-4">    
+            <h3 class="my-2">Refund claiming</h3>
+            <p class="mb-3">Guide users through the refund policy before filling out the refund claim form.</p>
+          </div>
+          <div class="col-12 col-lg-8">
+            <img class="featurepic" src="media/etomon/class/refund.gif" width="100%" />
+          </div> 
         </div>
+      </div>
+    </div>
 	</section>
 
-  <section class="problem">
-      <h3>Problem</h3>
-      <p>It was three months before launch, and <span class="spt">the old class managing page had a lot of dead ends and bugs</span>. Besides, <span class="spt">the UI was out-of-date and inconsistent</span> with the rest of the website. Therefore, we decided to design a new My Class page for student users to manage their class schedule and check learning history.</p>
+  <section class="problem container-fluid py-5">
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
+      <h2 class="my-3 my-sm-4">Problem</h2>
+      <p class="mb-2 mb-sm-4">It was three months before launch, and <span class="spt">the old class managing page had a lot of dead ends and bugs</span>. Besides, <span class="spt">the UI was out-of-date and inconsistent</span> with the rest of the website. Therefore, we decided to design a new My Class page for student users to manage their class schedule and check learning history.</p>
+    </div>
   </section>
 
-  <section class="approach">
-      <h3>Approach</h3>
-      <p class="approachbody">I used three main approaches to help me tackle this design problem:</p>
-      
-        <div class="approach1">
-          <p class="arnumber">1</p>
-          <h4>Design for MVP</h4>
-          <p>Bearing in mind that our primary goal is to LAUNCH AN MVP, we had to prioritize use cases strategically.</p>
-        </div>
+  <section class="approach container-fluid py-5">
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
+      <h2 class="my-3 my-sm-4">Approach</h2>
+      <p class="mb-4">I used three main approaches to help me tackle this design problem:</p>
 
-        <div class="approach2">
-          <p class="arnumber">2</p>
-          <h4>Follow the procedure</h4>
-          <p>We learned from the past that following the design procedure step by step is crucial to producing a high-quality design under pressure.</p>
-        </div>
-      
-        <div class="approach3">
-          <p class="arnumber">3</p>
-          <h4>Test early, test smart</h4>
-          <p>I tested my ideas with different groups of people during different design stages to help me make decisions with confidence.</p>
-        </div>
+      <h3 class="my-2">Design for MVP</h3>
+      <p class="mb-4">Bearing in mind that our primary goal is to LAUNCH AN MVP, we had to prioritize use cases strategically.</p>
+
+      <h3 class="my-2">Follow the procedure</h3>
+      <p class="mb-4">We learned from the past that following the design procedure step by step is crucial to producing a high-quality design under pressure.</p>
+
+      <h3 class="my-2">Test early, test smart</h3>
+      <p class="mb-5">I tested my ideas with different groups of people during different design stages to help me make decisions with confidence.</p>
+
+    </div>
   </section>
 
-  <section class="goals">
-    <h3>Understanding the goals</h3>
-    <p>A successful project always starts from a clear understanding of the goals. The goal of this project was to create a smooth class managing experience with limited time and resources. The high-level business goals and user goals are as following:</p> 
-    <img class="goalspic" src="media/etomon/class/goals.png" width="100%" />
+  <section class="goals container-fluid py-5">
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">      
+      <h2 class="my-3 my-sm-4">Understanding the goals</h2>
+      <p class="mb-2 mb-sm-4">A successful project always starts from a clear understanding of the goals. The goal of this project was to create a smooth class managing experience with limited time and resources. The high-level business goals and user goals are as following:</p> 
+      <img class="mb-2 mb-sm-4" src="media/etomon/class/goals.png" width="100%" />
 
-    <p>Since the timeframe was super tight, I felt I need to take a step back to <span class="spt">view the whole picture of the product</span> so that I can get a better sense of what kind of features should be included in the scope. So I checked the sitemap I made a while ago, and I found something interesting that I didn't expect:</p> 
-    <img class="sitemap" src="media/etomon/class/studentmap.png" width="100%" />
-    <img class="sitemap" src="media/etomon/class/instmap.png" width="100%" />
+      <p class="mb-2 mb-sm-4">Since the timeframe was super tight, I felt I need to take a step back to <span class="spt">view the whole picture of the product</span> so that I can get a better sense of what kind of features should be included in the scope. So I checked the sitemap I made a while ago, and I found something interesting that I didn't expect:</p> 
+      <img src="media/etomon/class/studentmap.png" width="100%" />
+      <img src="media/etomon/class/instmap.png" width="100%" />
 
-    <p>I noticed that under student accounts, there was a Payment History page that collected all transaction information for the user. Similar to the student's Payment History page, instructors also have a page -- Account Balance -- where they can check their earnings and make transfers from Etomon to their bank accounts. While the importance of having an Account Balance page to keep transaction records for merchants (instructors) is easy to understand, <span class="spt">separating payment records and class records for buyers (student users) seems unusual</span>.<br /><br />
-       To confirm my intuition, <span class="spt">I did a quick research on our competitor websites and also some large e-commerce websites</span>. And I was right. None of the websites separated order information and payment records. Integrating these two features on one page could not only <span class="spt">provide a more user-friendly online shopping experience</span> but also <span class="spt">save a lot of engineering effort</span>.<br /><br />
-       I reported my findings to my manager, and we decided to <span class="spt">incorporate payment records into the My Classes page</span> we were designing. 
-    </p> 
+      <p class="mb-3 mb-sm-4">I noticed that under student accounts, there was a Payment History page that collected all transaction information for the user. Similar to the student's Payment History page, instructors also have a page -- Account Balance -- where they can check their earnings and make transfers from Etomon to their bank accounts. While the importance of having an Account Balance page to keep transaction records for merchants (instructors) is easy to understand, <span class="spt">separating payment records and class records for buyers (student users) seems unusual</span>.<br /><br />
+      To confirm my intuition, <span class="spt">I did a quick research on our competitor websites and also some large e-commerce websites</span>. And I was right. None of the websites separated order information and payment records. Integrating these two features on one page could not only <span class="spt">provide a more user-friendly online shopping experience</span> but also <span class="spt">save a lot of engineering effort</span>.<br /><br />
+      I reported my findings to my manager, and we decided to <span class="spt">incorporate payment records into the My Classes page</span> we were designing. 
+      </p>
+    </div>
   </section>
 
-  <section class="brainstorming">
-    <h3>Brainstorming</h3>
-      <p>Based on the three general user needs and the project limitations, I did a brainstorming about tasks a student might perform on the My Classes page. It helped me to come up with as many doable features as possible for our MVP. </p>
-      <img class="featurepicss" src="media/etomon/class/features.png" width="100%" />
+  <section class="brainstorming container-fluid py-5">
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      <h2 class="my-3 my-sm-4">Brainstorming</h2>
+      <p class="mb-2 mb-sm-4">Based on the three general user needs and the project limitations, I did a brainstorming about tasks a student might perform on the My Classes page. It helped me to come up with as many doable features as possible for our MVP. </p>
+      <img class="mb-2 mb-sm-4" src="media/etomon/class/features.png" width="100%" />
 
-      <p>After discussing the possibility of implementing these features within the given time frame, <span class="spt">we decided to focus on seven user tasks and I planned out the information and functions</span> we needed for each task by writing them under the task flows.</p>
-      <div class="taskflow">
+      <p class="mb-2 mb-sm-4">After discussing the possibility of implementing these features within the given time frame, <span class="spt">we decided to focus on seven user tasks and I planned out the information and functions</span> we needed for each task by writing them under the task flows.</p>
+      <div class="mb-4">
         <div class="photoframe">
           <figure>
           <img class="taskflows" src="media/etomon/class/story1.png" width="100%" />
@@ -351,7 +175,7 @@ wow.init();
           <figure>
           <img class="taskflows" src="media/etomon/class/story4.png" width="100%" />
           </figure>
-      </div>
+        </div>
           <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
           <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
           <script type="text/javascript" src="js/slick.min.js"></script>
@@ -367,65 +191,83 @@ wow.init();
               });
               }); </script>
       </div>
-  </section>
-
-  <section class="wireframing">
-    <h3>Prototyping & User testing</h3>
-    <p>Two rounds of user tests were conducted using prototypes of different levels of fidelity. Prototypes helped me to quickly present the ideas and test them with the internal team to validate and iterate until the best experience had been achieved.</p>
-    <div class="pp1">
-        <h4>Lo-fi prototype</h4>
-        <p>Based on what I learned from the brainstorming process, I created <span class="spt">paper prototypes</span> and sketched out the concepts and had them tested with our internal team. Paper prototypes allowed me to quickly test different ideas and decide which design is better.</p> 
-    <img class="wf1pic" src="media/etomon/class/ppp.png" width="100%" />
-    </div>
-
-    <div class="pp2">
-        <h4>Mid-fi prototype</h4>
-        <p>Based on the feedback I collected from testing the paper prototypes, I modified the design correspondingly and translated the updated one to mid-fidelity wireframes on Figma. I collaborated with our UX writer to work on the content for each interface to ensure the writings are friendly and to-the-point. To get feedback on the user flows and the page layout, I created <span class="spt">a clickable prototype on Figma</span> and presented it to the whole team. Thanks to the opportunity of presenting my ideas to different roles, I was able to gather a lot of useful insights and use them for design iteration.</p>
-        <img class="wf1pic" src="media/etomon/class/fpp.png" width="100%" />   
     </div>
   </section>
 
-  <section class="visual">
-    <h3>Visual Design</h3>
-    <p>As Etomon already has an established style guide, I followed the guide when I designed the hi-fidelity wireframes. Several new UI elements were created because I couldn't find anything that in the existing style guide would work for the new design (for example, the attachment icon). I also added the new design specs to the style guide to make sure it is always updated for the whole team to use.
-    </p> 
-    <img class="hfpic" src="media/etomon/class/hfi.png" width="100%" />
-  </section>
-
-  <section class="whatsnext">
-    <h3>What's next</h3>
-    <p>For the future, I have done documentation of the whole process, and design decisions were explained so that it could help future designers to take over.<br /><br />
-
-    Due to the tight timeframe, we weren't able to test the interface and the workflow of the design using the hi-fidelity prototype with potential users. So our next step would be to work with the data team to <span class="spt">define success metrics</span> for future user studies.</p>
-  </section>
-
-  <section class="reflections">
-    <h3>Reflections</h3>
-    <div class="rf1">
-        <h4>Look at the big picture before diving deep</h4>
-        <p>Knowing the product structure helps designers to understand single features and make better decisions. It could even help early-stage companies to create a product that has a more user-friendly information structure and save time and money towards product launch.</p>
+  <section class="wireframing container-fluid py-5">
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+      <h2 class="my-3 my-sm-4">Prototyping & User testing</h2>
+      <p class="mb-5">Two rounds of user tests were conducted using prototypes of different levels of fidelity. Prototypes helped me to quickly present the ideas and test them with the internal team to validate and iterate until the best experience had been achieved.</p>
+ 
+      <h3 class="my-2">Lo-fi prototype</h3>
+      <p class="mb-4">Based on what I learned from the brainstorming process, I created <span class="spt">paper prototypes</span> and sketched out the concepts and had them tested with our internal team. Paper prototypes allowed me to quickly test different ideas and decide which design is better.</p> 
+    </div>
+    <div class="col-12 col-md-10 offset-md-1 mt-4 mb-5">
+      <img src="media/etomon/class/ppp.png" width="100%" />
     </div>
 
-    <div class="rf2">
-        <h4>Speak for your users, but don't fight for your users</h4>
-        <p>It is hard for junior designers to find the balance point between business goals and user needs, and I've seen some junior designers defending their design for the sole purpose of providing better user experience. I was there, too. But after finishing this project, I developed a deeper understanding of how designers could help to make both the user experience and the business better. We as UX Designers should speak for our users, but if modifying some parts of the design doesn't hurt the primary task flow or the overall product experience, we should welcome the challenge to make both ends happy.</p>
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <h3 class="mt-5 mb-2">Mid-fi prototype</h3>
+        <p class="mb-4">Based on the feedback I collected from testing the paper prototypes, I modified the design correspondingly and translated the updated one to mid-fidelity wireframes on Figma. I collaborated with our UX writer to work on the content for each interface to ensure the writings are friendly and to-the-point. To get feedback on the user flows and the page layout, I created <span class="spt">a clickable prototype on Figma</span> and presented it to the whole team. Thanks to the opportunity of presenting my ideas to different roles, I was able to gather a lot of useful insights and use them for design iteration.</p> 
     </div>
-
-    <div class="rf3">
-        <h4>It's never too early to ask for feedback from others</h4>
-        <p>I was grateful to have my team around when I needed their perspectives on my design. Project feedback, from the very start to the end, has helped me test and reshape my ideas until my project was ready to be delivered to the developers. Big thanks to the entire team at Etomon!</p>
+    <div class="col-12 col-md-10 offset-md-1 mt-4 mb-5">
+        <img src="media/etomon/class/fpp.png" width="100%" />
     </div>
-
   </section>
-	   <div id="wrapper">
-       		<section class="nextproject">
-       		<p><a href="artbook.html">Next project: My Artbook >> </a></p> 
-	   		</section>
-	   </div>	
-    
-    <footer class="foot">
-    		<p>Find me: yuezhangux@gmail.com &nbsp;|&nbsp; <a href="http://www.linkedin.com/in/yuezhang-ux" >LinkedIn</a><br />
-    		Website Design © 2020 Yue Zhang</p>
-    </footer>
+
+  <section class="visual container-fluid py-5">
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">    
+      <h2 class="my-3 my-sm-4">Visual Design</h2>
+      <p class="mb-4">As Etomon already has an established style guide, I followed the guide when I designed the hi-fidelity wireframes. Several new UI elements were created because I couldn't find anything that in the existing style guide would work for the new design (for example, the attachment icon). I also added the new design specs to the style guide to make sure it is always updated for the whole team to use.
+      </p> 
+    </div>
+    <div class="col-12 col-md-10 offset-md-1 mt-4 mb-5">
+      <img src="media/etomon/class/hfi.png" width="100%" />
+    </div>
+  </section>
+
+  <section class="whatsnext container-fluid py-5">
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">      
+      <h2 class="my-3 my-sm-4">What's next</h2>
+      <p class="mb-4">For the future, I have done documentation of the whole process, and design decisions were explained so that it could help future designers to take over.<br /><br />
+
+      Due to the tight timeframe, we weren't able to test the interface and the workflow of the design using the hi-fidelity prototype with potential users. So our next step would be to work with the data team to <span class="spt">define success metrics</span> for future user studies.</p>
+    </div>
+  </section>
+
+  <section class="reflections container-fluid py-5">
+    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">     
+      <h2 class="my-3 my-sm-4">Reflections</h2>
+      <div>
+        <h3 class="mt-5 mb-2">Look at the big picture before diving deep</h3>
+        <p class="mb-4">Knowing the product structure helps designers to understand single features and make better decisions. It could even help early-stage companies to create a product that has a more user-friendly information structure and save time and money towards product launch.</p>
+      </div>
+
+      <div>
+        <h3 class="mt-5 mb-2">Speak for your users, but don't fight for your users</h3>
+        <p class="mb-4">It is hard for junior designers to find the balance point between business goals and user needs, and I've seen some junior designers defending their design for the sole purpose of providing better user experience. I was there, too. But after finishing this project, I developed a deeper understanding of how designers could help to make both the user experience and the business better. We as UX Designers should speak for our users, but if modifying some parts of the design doesn't hurt the primary task flow or the overall product experience, we should welcome the challenge to make both ends happy.</p>
+      </div>
+
+      <div>
+        <h3 class="mt-5 mb-2">It's never too early to ask for feedback from others</h3>
+        <p class="mb-3 mb-sm-4">I was grateful to have my team around when I needed their perspectives on my design. Project feedback, from the very start to the end, has helped me test and reshape my ideas until my project was ready to be delivered to the developers. Big thanks to the entire team at Etomon!</p>
+      </div>
+    </div>
+  </section>
+
+  
+ 	<div class="nextproject my-5 container-fluid d-flex align-items-center justify-content-center">
+ 		<p><a href="artbook.html">Next project: My Artbook >> </a></p> 
+  </div>
+
+  <footer class="foot">
+    <div class="connect">
+      <p class="d-none d-sm-block">Let's connect:</p>
+      <a href="https://www.instagram.com/yyue1110"><p>Instagram | </p></a>
+      <a href="http://www.linkedin.com/in/yuezhang-ux"><p>LinkedIn | </p></a>
+      <a href="mailto:yuezhangux@gmail.com"><p>Email</p></a>
+    </div>
+    <p>Design & Code © 2020 Yue Zhang</p>
+  </footer>
 </body>
 </html>
