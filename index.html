@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="css/grid.css" />
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/libs/animate.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=NTR&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cousine&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/wow.min.js"></script>
   <script>	
@@ -206,35 +208,32 @@
     wow.init();
   </script>
 </head>
-<body>
-	<div id="wrapper">
-		<header>
-      <div class="navigation">
-  			<div class="logo"><a href="index.html"><img src="media/yue.svg" width="100%"></a></div>
-  			<nav class="pages">
-  				<ul>
-  					<li><a href="index.html" id="current">WORK&nbsp;</a></li>
-  					<li><a href="blog.html">BLOG&nbsp;</a></li>
-  					<li><a href="explore.html">EXPLORE</a></li>
-  				</ul>
-  			</nav>
-      </div>
-		</header>
-		<section class="hello">
-			<p>Hello, I'm <span class="span1">Yue Zhang</span>,<br />
-			a Product designer at <a href="https://www.primary.com">Primary.com</a><br />
-      I work to <span class="span2">simplify </span> complex problems <br />and bring people <span class="span3">happiness</span>
-			</p>
-		</section>
+<body id="work">
+	<div class="content">
+    <div class="wrapper">
+  		<div id="nav"></div>
+      <script>
+        $(function(){
+          $("#nav").load("nav.html");
+        });
+      </script> 
 
+  		<section class="hello">
+  			<h1 class="display-1">Hello, I'm <span class="text-orange">Yue Zhang</span>,<br />
+  			a Product designer at <a href="https://www.primary.com">Primary.com</a><br />
+        I work to <span class="text-blue">simplify </span> complex problems <br />and bring people <span class="text-yellow">happiness</span>
+  			</h1>
+  		</section>
+    </div>
+    
     <div class="container my-5 wow fadeInUp" data-wow-duration="1s">
       <div class="row align-items-center py-2 py-sm-4">
         <a href="etomonclass.html" class="col-12 col-md-6"><img src="media/etoclass.png" width="100%"></a>
-        <div class="title1 col-12 col-md-6">
-          <div class="m-md-5">
-            <a href="etomonclass.html"><h2 class="mt-3 mb-2 mb-sm-3">Etomon</h2></a>
-            <p class="des mb-2">Design an easy-to-use class managing page in 7 days.</p>
-            <p class="tags">UX | UI DESIGN | WEBSITE</p>
+        <div class="col-12 col-md-6">
+          <div class="mx-2 m-md-5">
+            <a href="etomonclass.html"><h2 class="display-1 mt-4 mb-2 mb-sm-3">Etomon</h2></a>
+            <p class="mb-3">Design an easy-to-use class managing page in 7 days.</p>
+            <p class="tag-secondary">UX | UI DESIGN | WEBSITE</p>
           </div>
         </div>
       </div>
@@ -243,11 +242,11 @@
     <div class="container my-5 wow fadeInUp" data-wow-duration="1s">
       <div class="row align-items-center py-2 py-sm-4">
         <a href="artbook.html" class="col-12 col-md-6"><img src="media/museum.png" width="100%"></a>
-        <div class="title1 col-12 col-md-6">
-          <div class="m-md-5">
-            <a href="artbook.html"><h2 class="mt-3 mb-2 mb-sm-3">My Artbook</h2></a>
-            <p class="des mb-2">A mobile app for art museum visitors to discover hidden stories, keep wonderful memories, and share happy moments.</p>
-            <p class="tags">UX | UI DESIGN | MOBILE</p>
+        <div class="col-12 col-md-6">
+          <div class="mx-2 m-md-5">
+            <a href="artbook.html"><h2 class="display-1 mt-4 mb-2 mb-sm-3">My Artbook</h2></a>
+            <p class="mb-3">A mobile app for art museum visitors to discover hidden stories, keep wonderful memories, and share happy moments.</p>
+            <p class="tag-secondary">UX | UI DESIGN | MOBILE</p>
           </div>
         </div>
       </div>
@@ -256,11 +255,11 @@
     <div class="container my-5 wow fadeInUp" data-wow-duration="1s">
       <div class="row align-items-center py-2 py-sm-4">
         <a href="blade.html" class="col-12 col-md-6"><img src="media/blade.png" width="100%"></a>
-        <div class="title1 col-12 col-md-6">
-          <div class="m-md-5">
-            <a href="blade.html"><h2 class="mt-3 mb-2 mb-sm-3">Blade</h2></a>
-            <p class="des mb-2">A VR game that teaches real movements in Chinese swordplay.</p>
-            <p class="tags">UX DESIGN | VR GAME</p>
+        <div class="col-12 col-md-6">
+          <div class="mx-2 m-md-5">
+            <a href="blade.html"><h2 class="display-1 mt-4 mb-2 mb-sm-3">Blade</h2></a>
+            <p class="mb-3">A VR game that teaches real movements in Chinese swordplay.</p>
+            <p class="tag-secondary">UX DESIGN | VR GAME</p>
           </div>
         </div>
       </div>
@@ -268,14 +267,12 @@
 
   </div>
 
-  <footer class="foot">
-    <div class="connect">
-  		<p class="d-none d-sm-block">Let's connect:</p>
-      <a href="https://www.instagram.com/yyue1110"><p>Instagram | </p></a>
-      <a href="http://www.linkedin.com/in/yuezhang-ux"><p>LinkedIn | </p></a>
-      <a href="mailto:yuezhangux@gmail.com"><p>Email</p></a>
-      </div>
-  		<p>Design & Code © 2020 Yue Zhang</p>
-  </footer>
+  <div id="footer"></div>
+  <script>
+    $(function(){
+      $("#footer").load("footer.html");
+    });
+  </script>
+  
 </body>
 </html>

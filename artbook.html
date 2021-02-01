@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>My Artbook</title>
 	<link rel="stylesheet" href="css/grid.css" />
-	<link rel="stylesheet" href="css/artbook.css" />
+	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/libs/animate.css" />
 	<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=NTR&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cousine&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -209,220 +210,214 @@ wow = new WOW(
 wow.init();
 </script>
 </head>
-<body>
-	<div id="wrapper">
-	    <header>
-	      <div class="navigation">
-	        <div class="logo"><a href="index.html"><img src="media/yue.svg" width="100%"></a></div>
-	          <nav class="pages">
-	            <ul>
-	              <li><a href="index.html" id="current">WORK&nbsp;</a></li>
-	              <li><a href="blog.html">BLOG&nbsp;</a></li>
-	              <li><a href="explore.html">EXPLORE</a></li>
-	            </ul>
-	          </nav>
-	      </div>
-	    </header>
-	</div>
-
-	<section class="container-fluid pb-5">
-	  <div class="row">
-	    <div class="bannertxt mt-4 mt-md-0">
-	      <h1>My Artbook</h1>
-	      <p class="mb-0 mb-md-3">A mobile app for art museum visitors to discover hidden stories, keep wonderful memories, and share happy moments.</p>
-	    </div>
-	    <div class="col-12 offset-md-7 col-md-3 p-0">
-	      <img class="bannerpic" src="media/museum/mockup.png" width="100%"/>
-	    </div>
-	  </div>
-	  <div class="row subinfo mb-4">
-	    <div class="mr-4 my-3" style="width:90px">
-	      <h4 class="mb-1">Duration</h4>
-	      <p>01/2018 - 05/2018</p>
-	    </div>
-	    <div class="mr-4 my-3" style="width:140px">
-	      <h4 class="mb-1">Type</h4>
-	      <p>Capstone project (Independent)</p>
-	         
-	    </div>
-	    <div class="mr-4 my-3" style="width:130px">
-	      <h4 class="mb-1">My Role</h4>
-	      <p>Research</p>
-	      <p>Prototyping</p>
-	      <p>UI Design</p>
-	      <p>Usability Testing</p>
-	    </div>
-	    <div class="my-3" style="width:140px">
-	      <h4 class="mb-1">Tools</h4>
-	      <p>Sketch</p>
-	      <p>InVision</p>
-	      <p>Adobe Illustrator</p>
-	      <p>Realtime Board</p>
-	    </div>
-	  </div>
-	</section>
-
-	<section class="overview container-fluid py-5">	
-	    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	      <h2 class="my-3 my-sm-4">The Story</h2>
-	      <p class="overviewtxt mb-2 mb-sm-4">I'm a travel enthusiast and I love visiting local museums when I go to a new city. In the summer of 2017, I travelled to 3 different countries and 9 cities. In Xi'an, China, I went to an exhibition where I came across this painting 👇<br /><span class="notes">( Source:<a href="https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Weizenfeld_mit_Zypressen4.jpeg#/media/File:Van_Gogh_-_Weizenfeld_mit_Zypressen4.jpeg"><i>Wikipedia </i></a>)</span></p>
-	      <img class="vg1 mb-5" src="media/museum/vg1.jpg" width="100%" />
-
-	      <p class="mb-2 mb-sm-4">Actually, this painting didn't catch my attention until 2 weeks later when I travelled to Melbourne, Australia. There I visited the National Gallery of Victoria where a special exhibition of Van Gogh was held. When I saw this painting, I suddenly realized that I just saw it a few days ago (Let me take a picture!):</p>
-	  	  <img class="vg2 mb-5" src="media/museum/vg2.jpg" width="100%" />
-
-	  	  <p class="mb-2 mb-sm-4">So after the travel in Australia ended, I flew back to the US. My airplane landed at JFK and I took the chance to visit the New York city for the first time in my life. Then on the second floor of the Met, I saw this painting hanging there 👇</p>
-      	  <img class="vg3 mb-5" src="media/museum/vg3.jpg" width="100%" />
-
-      	  <p class="mb-2 mb-sm-4">I met this painting 3 times at DIFFERENT places in ONE MONTH! <br />How could this happen?!</p>
-
-      	  <p class="wow fadeInUp mb-2 mb-sm-4" data-wow-duration="1s">Well, the answer is that Van Gogh created 3 versions for this painting (I didn't know it until I found <a href="https://en.wikipedia.org/wiki/Wheat_Field_with_Cypresses"><i>this</i></a> on Wikipedia). And I realized there could be so many hidden stories behind the paintings.</p>
-	    </div>
-	</section>
-
-	<section class="problem container-fluid py-5">
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
-	    <h2 class="my-3 my-sm-4">The Challenge</h2>
-	    <p class="mb-2 mb-sm-4">Due to space limitation, only very limited information is provided to art museum visitors directly as they physically visit a museum. Art museum visitors need to take <span class="spt">a considerable length of time</span> and <span class="spt">cognitive energy</span> to search and filter internet information if they want to know more about an artwork.</p>
-	  </div>
-	</section>
-	
-	<section class="solution container-fluid py-5">	
-		<div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-		  <h2 class="my-3 my-sm-4">The Solution</h2>
-		  <img class="my-4" src="media/museum/solution.png" width="100%">
-		  <p class="mb-2 mb-sm-4">My Artbook is a mobile app that helps art museum visitors to quickly find information of an artwork they would like to know. Besides, art museum visitors can also "favorite" a piece of artwork, create their own art collections, and share an artwork with their families and friends.</p>
-		  <h3 class="my-2">Interactive prototype 👇</h3>
-		  <div class="d-flex justify-content-center">
-		  	<iframe width="396" height="858" src="https://invis.io/BZHPCXKJXCQ" frameborder="0" allowfullscreen></iframe>
-		  </div>
-		  <p class="mb-3">Try to take a photo of the painting on the wall and find the artwork information. You could also do a manual search, add your notes, and save the artwork to your own collection. If you have some more time, try sharing the first painting in your "favorites" to Instagram.</p>
-		</div>
-	</section>
-
-	<section class="discovery container-fluid py-5">
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	    <h2 class="my-3 my-sm-4">Research</h2>
-	    <h3 class="my-2">Literature Review</h3>
-	    <p class="mb-4">I conducted a literature review to understand how museum researchers have progressed in providing supplemental information using evolving technologies.</p> 
-    </div>
-    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	    <img src="media/museum/literaturepic.png" width="100%" />
-    </div>
-    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
-	    <p class="mb-4">After this research, I narrowed the scope of my project to mobile app design because mobile devices could provide more personalized services for museum visitors.</p> 
-	  </div>
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	      <h3 class="mt-5 mb-2">1-on-1 Interviews</h3>
-	      <p class="mb-2">In order to discover how art museum visitors feel about their past experiences in information acquiring and what they do with the information, I conducted semi-structured interviews with 8 participants who had various backgrounds.</p> 
-	  </div>
-    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-      <img class="interviewpic" src="media/museum/interviewpic.png" width="100%" />
-	  </div>
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	      <h3 class="mt-2 mb-2">Understanding the Data</h3>
-	      <p class="mb-4">I interpreted interview data by making affinity diagram using <i><a href="https://realtimeboard.com/index/">Realtime Board</a></i>. It helped me to collect useful user expectations and get deaper understanding of the themes of the story.</p> 
-	  </div>
-	  <div class="col-12 col-md-10 offset-md-1 mt-4 mb-5">
-	      <figure class="afpic">
-	      	<a href="https://realtimeboard.com/welcomeonboard/ty1IYgzfp7eKjSdda2EEi9AAyzDgUumaEUmVjNSGUJQMZDXfAzKHIuQ1bydW0GrN"><img src="media/museum/afpic.jpg" width="100%" border="0"/></a>
-	      	<figcaption>Click on image to see details</figcaption>
-	      </figure>
-	  </div>
-	</section>
-
-	<section class="scoping container-fluid py-5">
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	    <h2 class="my-3 my-sm-4">Scoping</h2>
-	    <h3 class="my-2">Personas</h3>
-	    <p class="mb-4">From the interviews I found that people go to art museums mainly for two reasons: to study, or to relax. Two personas reflecting the two main types of visitors were created.</p> 
-	  </div>
-	  <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
-	  	<div class="photoframe">
-	      <figure>
-	      <img class="personapic" src="media/museum/persona1.png" width="100%" />
-	      </figure>
-	      <figure>
-	      <img class="personapic" src="media/museum/persona2.png" width="100%" />
-	      </figure>
-	  	</div>
-	      <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-	      <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	      <script type="text/javascript" src="js/slick.min.js"></script>
-	      <script type="text/javascript">
-	      $(document).ready(function(){
-	      $('.photoframe').slick({
-	      dots: false,
-	      infinite: true,
-	      arrows: true,
-	      speed: 500,
-	      fade: true,
-	      cssEase: 'linear'
-	      });
-	      }); </script>
-	  </div>
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	      <h3 class="mt-5 mb-2">Insights</h3>
-	      <p class="mb-5">Incorporating 7 features in one product is not an easy work. I needed to group similar functions together so as to make the information architecture simple and clear to even first-time users.<br /><br />  
-	      The user needs were organized into 4 categories. Then I came up with solutions corresponding to the user needs.</p> 
-	  </div>
-    <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-      <img class="mb-5" src="media/museum/needs.png" width="100%">
-    </div>
-	</section>
-
-	<section class="ideation container-fluid py-5">
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	    <h2 class="my-3 my-sm-4">Ideation</h2>
-	    <p class="mb-5">Incorporating 7 features in one product is not an easy work. I needed to group similar functions together so as to make the information architecture simple and clear to even first-time users.<br /><br />  
-	    The user needs were organized into 4 categories. Then I came up with solutions corresponding to the user needs. </p> 
-	  </div>
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	  	<img class="mb-5" src="media/museum/solutions.png" width="100%" />
-	  </div>
-	</section>
-
-	<section class="wireframing container-fluid py-5">
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	    <h2 class="my-3 my-sm-4">Wireframing</h2>
-	    <p class="mb-5">I used Adobe Illustrator to picturize the flows of my proposed solutions. 
-	      I tried to make each task as simple and short as possible.</p> 
-	  </div>
-	  <div class="col-12 col-lg-8 offset-lg-2">
-	  	<img class="mb-5" src="media/museum/wireframe.png" width="100%" />
-	  </div>
-	</section>
-	
-	<section class="evaluation container-fluid py-5">
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	    <h2 class="my-3 my-sm-4">Evaluation</h2>
-	    <p class="mb-5">I evaluated the usability of my prototype with 10 art museum visitors. Each participant completed 5 tasks on the prototype while thinking aloud. I also used validated questionnaire to measure the overall user experience.<br /><br />
-	    According to the SUS score, the overall experience of the prototype ranks A, which means the design is very user-friendly for first-time users.</p>
-	  </div>
-	  <div class="col-12 col-lg-8 offset-lg-2">
-	  	<img class="mb-5" src="media/museum/improvements.png" width="100%" />
-	  </div>
-	</section>
-	<section class="reflection container-fluid py-5">
-	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-	    <h2 class="my-3 my-sm-4">The Reflections</h2>
-	    <p class="mb-5">This is my first large independent project. If I could start over again, I would do a quick user testing before I start working on the UI design. I am pretty sure the final outcome would be a lot better with this improvement.<br /><br />
-	      By the time of the research part began, there was no similar product in the market. If I had enough time and resources, I really want to make My Artbook a real product. I can tell how useful and helpful it would be in art education and cultural promotion. I can imagine it bringing delightful moments to museum visitors and passing the delight to those people outside the museum's walls.</p> 
-	  </div>
-	</section>
-	
-	<div class="nextproject my-5 container-fluid d-flex align-items-center justify-content-center">
- 		<p><a href="blade.html">Next project: Blade >> </a></p> 
+<body id="work">
+  <div class="content">
+  	<div class="wrapper">
+      <div id="nav"></div>
+      <script>
+        $(function(){
+          $("#nav").load("nav.html");
+        });
+      </script>
   	</div>
-	   
-    <footer class="foot">
-    <div class="connect">
-      <p class="d-none d-sm-block">Let's connect:</p>
-      <a href="https://www.instagram.com/yyue1110"><p>Instagram | </p></a>
-      <a href="http://www.linkedin.com/in/yuezhang-ux"><p>LinkedIn | </p></a>
-      <a href="mailto:yuezhangux@gmail.com"><p>Email</p></a>
+
+  	<section class="container-fluid mt-4">
+  	  <div class="row d-flex flex-column flex-sm-row align-items-sm-center">
+  	    <div class="col-12 offset-md-1 col-md-5 mt-5 mt-md-0 px-4">
+  	      <h1 class="mb-4">My Artbook</h1>
+  	      <p class="mb-0 mb-md-5">A mobile app for art museum visitors to discover hidden stories, keep wonderful memories, and share happy moments.</p>
+  	    </div>
+  	    <div class="col-12 offset-md-1 col-md-3 p-0">
+  	      <img src="media/museum/mockup.png" width="100%"/>
+  	    </div>
+  	  </div>
+  	  <div class="col-12 offset-md-1 col-md-10 d-flex flex-column flex-sm-row justify-content-between mb-6 pb-sm-4">
+  	    <div class="my-3 pr-4">
+  	      <span class="tag-major">Duration</span>
+  	      <p>01/2018 - 05/2018</p>
+  	    </div>
+  	    <div class="my-3 pr-4">
+  	      <span class="tag-major">Type</span>
+  	      <p>Capstone project<br />
+          (Independent)</p>
+  	         
+  	    </div>
+  	    <div class="my-3 pr-4">
+  	      <span class="tag-major">My Role</span>
+  	      <p>Research</p>
+  	      <p>Prototyping</p>
+  	      <p>UI Design</p>
+  	      <p>Usability Testing</p>
+  	    </div>
+  	    <div class="my-3">
+  	      <span class="tag-major">Tools</span>
+  	      <p>Sketch</p>
+  	      <p>InVision</p>
+  	      <p>Adobe Illustrator</p>
+  	      <p>Realtime Board</p>
+  	    </div>
+  	  </div>
+  	</section>
+
+  	<section class="bg-grey container-fluid py-6">	
+      <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <h2 class="my-3 my-sm-4">The Story</h2>
+        <p class="overviewtxt mb-2 mb-sm-4">I'm a travel enthusiast and I love visiting local museums when I go to a new city. In the summer of 2017, I travelled to 3 different countries and 9 cities. In Xi'an, China, I went to an exhibition where I came across this painting 👇<br />( Source:<a href="https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Weizenfeld_mit_Zypressen4.jpeg#/media/File:Van_Gogh_-_Weizenfeld_mit_Zypressen4.jpeg"><i>Wikipedia </i></a>)</p>
+        <img class="mb-5" src="media/museum/vg1.jpg" width="100%" />
+
+        <p class="mb-2 mb-sm-4">Actually, this painting didn't catch my attention until 2 weeks later when I travelled to Melbourne, Australia. There I visited the National Gallery of Victoria where a special exhibition of Van Gogh was held. When I saw this painting, I suddenly realized that I just saw it a few days ago (Let me take a picture!):</p>
+    	  <img class="mb-5" src="media/museum/vg2.jpg" width="100%" />
+
+    	  <p class="mb-2 mb-sm-4">So after the travel in Australia ended, I flew back to the US. My airplane landed at JFK and I took the chance to visit the New York city for the first time in my life. Then on the second floor of the Met, I saw this painting hanging there 👇</p>
+    	  <img class="mb-5" src="media/museum/vg3.jpg" width="100%" />
+
+    	  <p class="mb-2 mb-sm-4">I met this painting 3 times at DIFFERENT places in ONE MONTH! <br />How could this happen?!</p>
+
+    	  <p class="wow fadeInUp mb-2 mb-sm-4" data-wow-duration="1s">Well, the answer is that Van Gogh created 3 versions for this painting (I didn't know it until I found <a href="https://en.wikipedia.org/wiki/Wheat_Field_with_Cypresses"><i>this</i></a> on Wikipedia). And I realized there could be so many hidden stories behind the paintings.</p>
+  	  </div>
+  	</section>
+
+  	<section class="bg-white container-fluid py-6">
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
+  	    <h2 class="my-3 my-sm-4">The Challenge</h2>
+  	    <p class="mb-2 mb-sm-4">Due to space limitation, only very limited information is provided to art museum visitors directly as they physically visit a museum. Art museum visitors need to take <span class="spt">a considerable length of time</span> and <span class="spt">cognitive energy</span> to search and filter internet information if they want to know more about an artwork.</p>
+  	  </div>
+  	</section>
+  	
+  	<section class="bg-grey container-fluid py-6">	
+  		<div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  		  <h2 class="my-3 my-sm-4">The Solution</h2>
+  		  <img class="mt-4 mb-5" src="media/museum/solution.png" width="100%">
+  		  <p class="mb-2 mb-sm-5">My Artbook is a mobile app that helps art museum visitors to quickly find information of an artwork they would like to know. Besides, art museum visitors can also "favorite" a piece of artwork, create their own art collections, and share an artwork with their families and friends.</p>
+  		  <h3 class="my-3">Interactive prototype 👇</h3>
+  		  <div class="d-flex justify-content-center">
+  		  	<iframe width="396" height="858" src="https://invis.io/BZHPCXKJXCQ" frameborder="0" allowfullscreen></iframe>
+  		  </div>
+  		  <p class="mb-3">Try to take a photo of the painting on the wall and find the artwork information. You could also do a manual search, add your notes, and save the artwork to your own collection. If you have some more time, try sharing the first painting in your "favorites" to Instagram.</p>
+  		</div>
+  	</section>
+
+  	<section class="bg-white container-fluid py-6">
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	    <h2 class="my-3 my-sm-4">Research</h2>
+  	    <h3 class="my-3">Literature Review</h3>
+  	    <p class="mb-4">I conducted a literature review to understand how museum researchers have progressed in providing supplemental information using evolving technologies.</p> 
+      </div>
+      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	    <img src="media/museum/literaturepic.png" width="100%" />
+      </div>
+      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
+  	    <p class="mb-4">After this research, I narrowed the scope of my project to mobile app design because mobile devices could provide more personalized services for museum visitors.</p> 
+  	  </div>
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	      <h3 class="mt-5 mb-3">1-on-1 Interviews</h3>
+  	      <p class="mb-2">In order to discover how art museum visitors feel about their past experiences in information acquiring and what they do with the information, I conducted semi-structured interviews with 8 participants who had various backgrounds.</p> 
+  	  </div>
+      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <img class="interviewpic" src="media/museum/interviewpic.png" width="100%" />
+  	  </div>
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	      <h3 class="mt-2 mb-3">Understanding the Data</h3>
+  	      <p class="mb-4">I interpreted interview data by making affinity diagram using <i><a href="https://realtimeboard.com/index/">Realtime Board</a></i>. It helped me to collect useful user expectations and get deaper understanding of the themes of the story.</p> 
+  	  </div>
+  	  <div class="col-12 col-md-10 offset-md-1 mt-4 mb-5">
+  	      <figure class="afpic">
+  	      	<a href="https://realtimeboard.com/welcomeonboard/ty1IYgzfp7eKjSdda2EEi9AAyzDgUumaEUmVjNSGUJQMZDXfAzKHIuQ1bydW0GrN"><img src="media/museum/afpic.jpg" width="100%" border="0"/></a>
+  	      	<figcaption>Click on image to see details (registration needed)</figcaption>
+  	      </figure>
+  	  </div>
+  	</section>
+
+  	<section class="bg-grey container-fluid py-6">
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	    <h2 class="my-3 my-sm-4">Scoping</h2>
+  	    <h3 class="my-3">Personas</h3>
+  	    <p class="mb-4">From the interviews I found that people go to art museums mainly for two reasons: to study, or to relax. Two personas reflecting the two main types of visitors were created.</p> 
+  	  </div>
+  	  <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+  	  	<div class="photoframe">
+  	      <figure>
+  	      <img class="personapic" src="media/museum/persona1.png" width="100%" />
+  	      </figure>
+  	      <figure>
+  	      <img class="personapic" src="media/museum/persona2.png" width="100%" />
+  	      </figure>
+  	  	</div>
+  	      <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  	      <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  	      <script type="text/javascript" src="js/slick.min.js"></script>
+  	      <script type="text/javascript">
+  	      $(document).ready(function(){
+  	      $('.photoframe').slick({
+  	      dots: false,
+  	      infinite: true,
+  	      arrows: true,
+  	      speed: 500,
+  	      fade: true,
+  	      cssEase: 'linear'
+  	      });
+  	      }); </script>
+  	  </div>
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	      <h3 class="mt-5 mb-3">Insights</h3>
+  	      <p class="mb-4">Incorporating 7 features in one product is not an easy work. I needed to group similar functions together so as to make the information architecture simple and clear to even first-time users.<br /><br />  
+  	      The user needs were organized into 4 categories. Then I came up with solutions corresponding to the user needs.</p> 
+  	  </div>
+      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <img class="mb-4" src="media/museum/needs.png" width="100%">
+      </div>
+  	</section>
+
+  	<section class="bg-white container-fluid py-6">
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	    <h2 class="my-3 my-sm-4">Ideation</h2>
+  	    <p class="mb-4">Incorporating 7 features in one product is not an easy work. I needed to group similar functions together so as to make the information architecture simple and clear to even first-time users.<br /><br />  
+  	    The user needs were organized into 4 categories. Then I came up with solutions corresponding to the user needs. </p> 
+  	  </div>
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	  	<img class="mb-4" src="media/museum/solutions.png" width="100%" />
+  	  </div>
+  	</section>
+
+  	<section class="bg-grey container-fluid py-6">
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	    <h2 class="my-3 my-sm-4">Wireframing</h2>
+  	    <p class="mb-4">I used Adobe Illustrator to picturize the flows of my proposed solutions. 
+  	      I tried to make each task as simple and short as possible.</p> 
+  	  </div>
+  	  <div class="col-12 col-lg-8 offset-lg-2">
+  	  	<img class="mb-4" src="media/museum/wireframe.png" width="100%" />
+  	  </div>
+  	</section>
+  	
+  	<section class="bg-white container-fluid py-6">
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	    <h2 class="my-3 my-sm-4">Evaluation</h2>
+  	    <p class="mb-4">I evaluated the usability of my prototype with 10 art museum visitors. Each participant completed 5 tasks on the prototype while thinking aloud. I also used validated questionnaire to measure the overall user experience.<br /><br />
+  	    According to the SUS score, the overall experience of the prototype ranks A, which means the design is very user-friendly for first-time users.</p>
+  	  </div>
+  	  <div class="col-12 col-lg-8 offset-lg-2">
+  	  	<img class="mb-4" src="media/museum/improvements.png" width="100%" />
+  	  </div>
+  	</section>
+  	<section class="bg-grey container-fluid py-6">
+  	  <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+  	    <h2 class="my-3 my-sm-4">The Reflections</h2>
+  	    <p class="mb-4">This is my first large independent project. If I could start over again, I would do a quick user testing before I start working on the UI design. I am pretty sure the final outcome would be a lot better with this improvement.<br /><br />
+  	      By the time of the research part began, there was no similar product in the market. If I had enough time and resources, I really want to make My Artbook a real product. I can tell how useful and helpful it would be in art education and cultural promotion. I can imagine it bringing delightful moments to museum visitors and passing the delight to those people outside the museum's walls.</p> 
+  	  </div>
+  	</section>
+  	
+  	<div class="nextproject my-5 container-fluid d-flex align-items-center justify-content-center">
+   		<p><a href="blade.html">Next project: Blade >> </a></p> 
     </div>
-    <p>Design & Code © 2020 Yue Zhang</p>
-  </footer>
+  </div>
+	   
+  <div id="footer"></div>
+  <script>
+    $(function(){
+      $("#footer").load("footer.html");
+    });
+  </script>
 </body>
 </html>

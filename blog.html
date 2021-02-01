@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Blog | Yue Zhang</title>
   <link rel="stylesheet" href="css/grid.css" />
-	<link rel="stylesheet" href="css/bstyle.css" />
+	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/libs/animate.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=NTR&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cousine&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script>	
@@ -207,47 +208,63 @@ wow.init();
 </script>
 	
 </head>
-<body>
-  <div id="wrapper">
-      <header>
-        <div class="navigation">
-          <div class="logo"><a href="index.html"><img src="media/yue.svg" width="100%"></a></div>
-            <nav class="pages">
-              <ul>
-                <li><a href="index.html">WORK&nbsp;</a></li>
-                <li><a href="blog.html" id="current">BLOG&nbsp;</a></li>
-                <li><a href="explore.html">EXPLORE</a></li>
-              </ul>
-            </nav>
+<body id="blog">
+  <div class="content">
+    <div class="wrapper">
+      <div id="nav"></div>
+      <script>
+        $(function(){
+          $("#nav").load("nav.html");
+        });
+      </script>
+    </div>
+  		
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 my-5 pt-3">
+          <div class="mx-1 mx-sm-0">
+            <h1 class="mb-3">Yue's blog</h1>
+            <p>Design, coding, and self-reflections</p>
+          </div>
         </div>
-      </header>
+
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 my-3">
+          <div class="mx-1 mx-sm-0">
+            <a href="blog/2020retro.html"><h2 class="header-3">2020 Retro</h2></a>
+            <p class="tag-secondary mt-2">THOUGHTS | 01/2021</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 my-3">
+          <div class="mx-1 mx-sm-0">
+            <a href="blog/githubnotes.html"><h2 class="header-3">Learning github from zero</h2></a>
+            <p class="tag-secondary mt-2">CODING | 07/2020</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 my-3">
+          <div class="mx-1 mx-sm-0">
+            <a href="blog/sciencebg.html"><h2 class="header-3">From Chemistry to UX Design: what a science background has brought me</h2></a>
+            <p class="tag-secondary mt-2">THOUGHTS | 06/2020</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 my-3 mb-6">
+          <div class="mx-1 mx-sm-0">
+            <a href="blog/csschecklist.html"><h2 class="header-3">👩‍💻 My checklist for the CSS code-not-working situation</h2></a>
+            <p class="tag-secondary mt-2">CODING | 06/2020</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-		
-  <div class="container">
-    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 my-5">
-      <h1 class="intro">Yue's blog</h1>
-      <p>Design, coding, and self-reflections</p>
-    </div>
-
-    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 my-5">
-      <a href="blog/sciencebg.html"><h3>💭 From Chemistry to UX Design: what a science background has brought me</h3></a>
-      <p class="tags">06/2020</p>
-    </div>
-
-    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 my-5">
-      <a href="blog/csschecklist.html"><h3>👩‍💻 My checklist for the CSS code-not-working situation</h3></a>
-      <p class="tags">06/2020</p>
-    </div>
-
-  </div>
-  <footer class="foot">
-    <div class="connect">
-      <p class="d-none d-sm-block">Let's connect:</p>
-      <a href="https://www.instagram.com/yyue1110"><p>Instagram | </p></a>
-      <a href="http://www.linkedin.com/in/yuezhang-ux"><p>LinkedIn | </p></a>
-      <a href="mailto:yuezhangux@gmail.com"><p>Email</p></a>
-    </div>
-    <p>Design & Code © 2020 Yue Zhang</p>
-  </footer>
+  
+  <div id="footer"></div>
+  <script>
+    $(function(){
+      $("#footer").load("footer.html");
+    });
+  </script>
+  
 </body>
 </html>

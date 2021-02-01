@@ -4,64 +4,58 @@
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Yue Zhang</title>
-	<link rel="stylesheet" href="css/estyle.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=NTR&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/grid.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cousine&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 </head>
-<body class="bg">
-	<div id="wrapper">
-	    <header>
-	      <div class="navigation">
-	        <div class="logo"><a href="index.html"><img src="media/yue.svg" width="100%"></a></div>
-	          <nav class="pages">
-	            <ul>
-	              <li><a href="index.html">WORK&nbsp;</a></li>
-	              <li><a href="blog.html">BLOG&nbsp;</a></li>
-	              <li><a href="explore.html" id="current">EXPLORE</a></li>
-	            </ul>
-	          </nav>
-	      </div>
-	    </header>
-	</div>
-		
-	<div id="wrapper">
-		<section id="content">
-			<div class="container">
-			  <div class="gallery">
-			   <img src="media/rocfly.jpg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/home.jpg" alt="" width="100%" height="auto" class="gallery-img" />		
-			   <img src="media/ruin.jpg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/qinghailake.jpg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/pr.jpg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/ny2.jpg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/ny1.jpg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/beforethunder.jpeg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/corning.jpg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/crystal.jpg" alt="" width="100%" height="auto" class="gallery-img" />
-			   <img src="media/white.jpeg" alt="" width="100%" height="auto" class="gallery-img" />
-			  </div> 
-			</div>
+<body id="explore">
+	<div class="content">
+		<div class="wrapper">
+	    <div id="nav"></div>
+      <script>
+        $(function(){
+          $("#nav").load("nav.html");
+        });
+      </script>
+		</div>
+			
+		<div class="wrapper">
+			<section id="content">
+				<div class="container mt-5">
+				  <div class="gallery">
+				   <img src="media/rocfly.jpg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/home.jpg" alt="" width="100%" height="auto" class="gallery-img" />		
+				   <img src="media/ruin.jpg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/qinghailake.jpg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/pr.jpg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/ny2.jpg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/ny1.jpg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/beforethunder.jpeg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/corning.jpg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/crystal.jpg" alt="" width="100%" height="auto" class="gallery-img" />
+				   <img src="media/white.jpeg" alt="" width="100%" height="auto" class="gallery-img" />
+				  </div> 
+				</div>
 
-			<div id="myModal" class="modal fade" role="dialog">
-  				<div class="modal-dialog">
-    				<div class="modal-content">
-      					<div class="modal-body">
-      					</div>
-    				</div>
-  				</div>
-			</div>	
-      	</section>
-
-    </div>
-    <footer class="foot">
-      <div class="connect">
-    	<p class="d-none d-sm-block">Let's connect:</p>
-        <a href="https://www.instagram.com/yyue1110"><p>Instagram | </p></a>
-        <a href="http://www.linkedin.com/in/yuezhang-ux"><p>LinkedIn | </p></a>
-        <a href="mailto:yuezhangux@gmail.com"><p>Email</p></a>
-        </div>
-    	  <p>Design & Code © 2020 Yue Zhang</p>
-    </footer>
+				<div id="myModal" class="modal fade" role="dialog">
+	  				<div class="modal-dialog">
+	    				<div class="modal-content">
+	      					<div class="modal-body">
+	      					</div>
+	    				</div>
+	  				</div>
+				</div>	
+	    </section>
+	    </div>
+	  </div>
+    
+    <div id="footer-dark"></div>
+    <script>
+      $(function(){
+        $("#footer-dark").load("footer.html");
+      });
+    </script>
 </body>
 </html>
