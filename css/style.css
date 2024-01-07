@@ -17,9 +17,11 @@ h4 { font-size: 22px; line-height:26px; font-weight:700; font-family: 'Averia Se
 a, img { outline: none; border:none; }
 p, li { font-size:18px; line-height:30px; font-weight:400; }
 figcaption { font-size:13px; line-height:20px;font-weight:300; padding-top:4px; }
-.tag-major { font-size:16px; display: block;line-height:35px;font-weight:700;text-transform: uppercase; }
-.tag-secondary { font-size:16px;color:#707070; display: block;line-height:35px;font-weight:400;text-transform: uppercase; }
-.spt { color:#363636;}
+.tag-major { font-size:16px; display: block;line-height:32px;font-weight:700;text-transform: uppercase; letter-spacing: 0.6px; }
+.tag-secondary { font-size:15px; display: block;line-height:24px;font-weight:400;text-transform: uppercase; }
+.dark-grey { color: #363636; }
+.light-grey { color: #707070; }
+.text-center { text-align: center; }
 .p-small { font-size:16px; line-height:30px; font-weight:300; }
 .p-code { font-size:16px;letter-spacing:1.2px; color:#3066DB;background-color:#f3f3f3;line-height:30px;font-weight:700;padding:16px;}
 ol { list-style-type: decimal; list-style-position: inside; margin: 0; }
@@ -95,7 +97,7 @@ nav li {
 
 #current {color:#EF6E0B;}
 
-#work .work, #blog .blog, #explore .explore
+#work .work, #blog .blog, #explore .explore, #about .about
 {
   color:#EF6E0B;
 }
