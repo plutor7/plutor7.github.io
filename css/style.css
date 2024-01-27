@@ -17,8 +17,8 @@ h4 { font-size: 22px; line-height:26px; font-weight:700; font-family: 'Averia Se
 a, img { outline: none; border:none; }
 p, li { font-size:18px; line-height:30px; font-weight:400; }
 figcaption { font-size:13px; line-height:20px;font-weight:300; padding-top:4px; }
-.tag-major { font-size:16px; display: block;line-height:32px;font-weight:700;text-transform: uppercase; letter-spacing: 0.6px; }
-.tag-secondary { font-size:15px; display: block;line-height:24px;font-weight:400;text-transform: uppercase; }
+.tag-major { font-size:16px; display: block;line-height:32px;font-weight:700;text-transform: uppercase; letter-spacing: 0.4px; }
+.tag-secondary { font-size:15px; display: block;line-height:24px;font-weight:400;text-transform: uppercase; letter-spacing: 0.4px;}
 .dark-grey { color: #363636; }
 .light-grey { color: #707070; }
 .text-center { text-align: center; }
@@ -244,6 +244,14 @@ nav li {
   }
 }
 
+/* ~ About ~ */
+.image-gap { 
+  gap: 16px; 
+
+  @media (min-width: 768px) {
+    gap: 24px; 
+  }
+}
 
 /* ~ Footer ~ */
 .footer {

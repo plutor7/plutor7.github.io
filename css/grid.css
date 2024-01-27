@@ -2878,6 +2878,25 @@ html {
   .mx-md-5 {
     margin-left: 32px !important;
   }
+  .m-md-6 {
+    margin: 48px !important;
+  }
+  .mt-md-6,
+  .my-md-6 {
+    margin-top: 48px !important;
+  }
+  .mr-md-6,
+  .mx-md-6 {
+    margin-right: 48px !important;
+  }
+  .mb-md-6,
+  .my-md-6 {
+    margin-bottom: 48px !important;
+  }
+  .ml-md-6,
+  .mx-md-6 {
+    margin-left: 48px !important;
+  }
   .p-md-0 {
     padding: 0 !important;
   }
@@ -3128,6 +3147,25 @@ html {
   .ml-lg-5,
   .mx-lg-5 {
     margin-left: 32px !important;
+  }
+  .m-lg-6 {
+    margin: 48px !important;
+  }
+  .mt-lg-6,
+  .my-lg-6 {
+    margin-top: 48px !important;
+  }
+  .mr-lg-6,
+  .mx-lg-6 {
+    margin-right: 48px !important;
+  }
+  .mb-lg-6,
+  .my-lg-6 {
+    margin-bottom: 48px !important;
+  }
+  .ml-lg-6,
+  .mx-lg-6 {
+    margin-left: 48px !important;
   }
   .p-lg-0 {
     padding: 0 !important;
