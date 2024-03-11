@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/libs/animate.css" />
   <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cousine&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/slick.css"/>
   <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -52,6 +54,7 @@
         </div>
         <div class="my-3 pr-sm-4">
           <span class="tag-major mb-2">My Role</span>
+          <p class="light-grey">Market Research</p>
           <p class="light-grey">UX/UI Design</p>
           <p class="light-grey">Visual QA</p>
         </div>
@@ -68,9 +71,9 @@
     <section class="bg-grey container-fluid py-8">
       <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
         <h2 class="mb-5">The problem</h2>
-        <p class="mb-4">Primary believes there’s a color for every kid and is proud of its expansive color options offered to its customers. In 2023, the team wanted to create a new experience where customers could immerse themselves in a color-themed space, get inspired by our curated outfits, and purchase products from a collection hand-picked by the team.</p>
+        <p class="mb-4">Primary believes there’s a color for every kid and is proud of its expansive color options offered to its customers. In 2023, the team wanted to <b>create a new experience</b> where customers could immerse themselves in a color-themed space, get inspired by our curated outfits, and purchase products from a collection hand-picked by the team.</p>
 
-        <p>The traditional product listing page didn’t allow us to achieve these goals because it was simply built to display products in a grid and did not have the structural flexibility to be upgraded to what we wanted.
+        <p><b>The existing product listing page didn’t allow us to achieve these goals</b> because it was simply built to display products in a grid and did not have the structural flexibility to be upgraded to what we wanted.
         </p>
       </div>
     </section>
@@ -78,7 +81,7 @@
     <section class="bg-white container-fluid py-8">
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
         <h2 class="mb-5">The goals</h2>
-        <p>The high-level goal for the project was to build a color-themed template that allows the team to showcase specific styles and highlight the versatility of our products. We hoped that by inspiring customers with outfit examples and providing them with curated products, we could stimulate their purchase intent, and therefore increase customer engagement and purchases.</p>
+        <p>The high-level goal for the project was to <b>build a color-themed template that allows the team to showcase specific styles and highlight the versatility of our products.</b> We hoped that by inspiring customers with outfit examples and providing them with curated products, we could stimulate their purchase intent, and therefore increase customer engagement and purchases.</p>
       </div>
     </section>
 
@@ -88,18 +91,50 @@
         <h2 class="mb-5">Understanding what’s already there</h2>
         <p class="mb-4">I connected with the merchandising team who initiated the idea of Color Stories. They had a clear vision of how products are organized on the page, and they wanted to showcase a set of outfit examples as inspirations for creating outfits. At the same time, there was a special interest in being able to intersperse content (static images, text over images, customer reviews, etc.) throughout the page. They also suggested that a size filter would be nice to have since they were planning to include both baby products and kid products on the same page.</p>
         
-        <p class="mb-5">While the idea of Color Stories is original, it relates to a more common sales strategy—mix-and-match. I conducted market research to study how other businesses are selling their mix-and-match collections and to seek inspiration for featuring outfits in conjunction with products.</p>
+        <p class="mb-6">While the idea of Color Stories was original, it related to a more common sales strategy—mix-and-match. So <b>I conducted a market research</b> to study how other businesses are selling their mix-and-match collections and to seek inspiration for featuring outfits in conjunction with products.</p>
 
-        <h3 class="mb-3">Learnings from the market</h3>
-        <p class="mb-3">After going through over 60 e-commerce sites, I was only able to find 5 live examples. Different strategies were utilized to organize the page:</p>
-        <ol class="mb-5" style="list-style-type: '&#x1F4A1';">
+        <h3 class="mb-4">Learnings from the market</h3>
+        <p class="mb-3">After going through over 60 e-commerce sites, I was only able to find 5 live examples. Even though the sample size was very small, I was able to <b>summarize the strategies</b> utilized on the pages:</p>
+        <ol class="mx-md-5 mb-6" style="list-style-type: '&#x1F4A1';">
           <li class="mb-2"><span class="header-5 ml-2">Strategy 1:</span> Leading a small collection of products with multiple lifestyle images showcasing possible outfits that can be created using products from the small collection.</li>
           <li class="mb-2"><span class="header-5 ml-2">Strategy 2:</span> Showcasing all featured outfits at the top of the page, then presenting a small collection of products with a card that links to the page where customers can shop the small collection.</li>
-          <li class="mb-2"><span class="header-5 ml-2">Strategy 3:</span> Instead of displaying individual product cards, grouping products that belong to the same “outfit idea” in one image. The image links to a page where all the products in the image can be selected and purchased.</li>
+          <li><span class="header-5 ml-2">Strategy 3:</span> Instead of displaying individual product cards, grouping products that belong to the same “outfit idea” in one image. The image links to a page where all the products in the image can be selected and purchased.</li>
         </ol>
 
+        <div class="mb-6">
+          <div class="photoframe">
+            <figure>
+              <img class="mb-2" src="media/primary/colorstories/researchexp1.png" width="100%" />
+              <figcaption>Example using strategy 1</figcaption>
+            </figure>
+            <figure>
+              <img class="mb-2" src="media/primary/colorstories/researchexp2.png" width="100%" />
+              <figcaption>Example using strategy 2</figcaption>
+            </figure>
+            <figure>
+              <img class="mb-2" src="media/primary/colorstories/researchexp3.png" width="100%" />
+              <figcaption>Example using strategy 3</figcaption>
+            </figure>
+          </div>
+          <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+          <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+          <script type="text/javascript" src="js/slick.min.js"></script>
+          <script type="text/javascript">
+            $(document).ready(function(){
+              $('.photoframe').slick({
+                dots: false,
+                infinite: true,
+                arrows: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear'
+              });
+            }); 
+          </script>
+        </div>
+
         <p class="mb-3">Since none of these examples had custom content inserted throughout the page, I made a separate observation on traditional product listing pages in the market. The key takeaways were:</p>
-        <ul>
+        <ul class="mx-md-5">
           <li class="mb-2">Content blocks can be used to lead a group of products by highlighting features of the products. They are often used to cross-link to a different page, in which case the block is inserted on either side of the product grid.</li>
           <li class="mb-2">The first content block is usually placed within the first 3 rows in a product grid on desktop.</li>
           <li class="mb-2">Most content blocks are designed to have the same size as a product card so that they don’t take away too much space from the products.</li>
@@ -116,7 +151,7 @@
         <p class="mb-6">The market research provided great ideas for structuring the page. Strategy 1 and 2 were the two logical ways for arranging outfit photography and products on a page. Strategy 3 required too much lift for the photo team and the tech team, and was not something we were looking to try in this project.</p>
 
         <h3 class="my-3">Page layout</h3>
-        <p class="mb-6">After aligning with the core group regarding the views on the three ideas mentioned above, I began sketching out the page layout options using the assets that were available to me at the time while taking consideration of the need to insert custom content throughout the page.</p>
+        <p class="mb-6"><b>After aligning with the core group regarding the views on the three ideas mentioned above,</b> I began sketching out the page layout options using the assets that were available to me at the time while taking consideration of the need to insert custom content throughout the page.</p>
       </div>
 
       <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-10 offset-lg-1">
@@ -131,14 +166,17 @@
       </div>
         
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <p class="mt-6 mb-3">The layout options were shared with the core group, and the team found both directions interesting:
+        <p class="mt-6 mb-3">I shared these explorations with the core group over Slack, and <b>the group found both directions interesting:</b>
         </p>
-        <ul class="mb-5">
-          <li class="mb-2">Option 1A was preferred among the layout 1 variations due to the clear distinction between outfits and products. The team was interested in seeing further explorations where the outfits stand out more.</li>
-          <li class="mb-2">Option 2A was preferred between the two layout 2 variations, and the team was curious about other ways to present outfit ideas.</li>
+        <ul class="mx-md-5 mb-5">
+          <li class="mb-2">Option 1A was preferred among the layout 1 variations due to the clear distinction between outfits and products. The group was interested in seeing <b>further explorations where the outfits stand out more.</b></li>
+          <li class="mb-2">Option 2A was preferred between the two layout 2 variations, and the group was curious about <b>other ways to present outfit ideas.</b></li>
         </ul>
 
-        <p class="mb-4">Although it was requested that we add the ability to insert content blocks on the template, after seeing the mockups, the team decided not to move forward with this idea for this project. We felt that for the MVP, content blocks weren't part of the core experience, and it was something we would be interested in exploring after we validate the idea of Color Stories. We also felt that we would like to test content blocks in a larger venue (i.e., the regular product listing pages) so that we could run tests more efficiently.</p>
+        <p class="mb-4">While I was exploring the page layout options, I had a difficult time finding a home for content blocks. The main reason was that the pages already felt structurally complete, and inserting extra content into the products grid would hurt the cleaness and the scanability of the products section.
+        </p>
+
+        <p class="mb-4"><b>I shared the above thought with the core group and we had a discussion.</b> As a result, <b>the team decided to remove the requirement of being able to insert content blocks for this project.</b> We felt that for the MVP, content blocks weren't part of the core experience, and it was something we would be interested in exploring after we validate the idea of Color Stories. We also felt that we would like to test content blocks in a larger venue (i.e., the regular product listing pages) so that we could run tests more efficiently.</p>
 
         <p class="mb-6">Based on the feedback, I conducted a second design iteration to expand on ideas 1A and 2A.
         </p>
@@ -160,11 +198,11 @@
       </div>
 
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <p class="mb-6">The team found options 1C, 1D, 2B, and 2D were promising. Therefore, I presented these four options to the key stakeholders in our first Design Review meeting. Coming out of the meeting, the team was aligned on proceeding with option 2D for its clearity and simplicity, as it allows exploration via outfit carousel while taking customers to the shoppable products faster.
+        <p class="mb-6">The team found options 1C, 1D, 2B, and 2D were promising. Therefore, <b>I presented these four options to the key stakeholders</b> in our first Design Review meeting. Coming out of the meeting, <b>the team aligned on proceeding with option 2D</b> for its clearity and simplicity, as it allows exploration via outfit carousel while taking customers to the shoppable products faster.
         </p>
 
         <h3 class="my-3">Making other stories more visible</h3>
-        <p class="mb-6">One piece of feedback from the Design Review meeting was that it would be helpful to incorporate links to other Color Story pages in the header area. I explored different options using our existing components from the style library. While it wasn't a request, I suggested that we also add links to other Color Stories at the bottom of the page so that people who missed the links at the top can have a second chance to discover those pages.
+        <p class="mb-6">One piece of feedback from the Design Review meeting was that <b>it would be helpful to incorporate links to other Color Story pages in the header area.</b> I explored different options <b>using our existing components from the style library.</b> While it wasn't a request, I suggested that we also <b>add links to other Color Stories at the bottom of the page</b> so that people who missed the links at the top can have a second chance to notice the existence of other color stories.
         </p>
       </div>
 
@@ -209,9 +247,9 @@
         <p class="mb-4">Overall, visiting Color Story pages had a positive impact on order economics. For sessions that visited a Color Story page:</p>
 
         <ul>
-          <li class="mb-2">Conversion rate increased by 63%</li>
-          <li class="mb-2">Units Per Transaction (UPT) increased by 6%</li>
-          <li class="mb-2">Average Order Value (AOV) increased by 23%</li>
+          <li class="mb-2"><b>Conversion rate increased by 63%</b></li>
+          <li class="mb-2"><b>Units Per Transaction (UPT) increased by 6%</b></li>
+          <li class="mb-2"><b>Average Order Value (AOV) increased by 23%</b></li>
         </ul>
       </div>
     </section>
