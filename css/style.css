@@ -65,7 +65,7 @@ a:hover { text-decoration: none; color: #EF6E0B;}
   transition:color .2s ease-out, background 2s ease-in;}
 .hello a:active, nav a:active, footer a:active, .brief a:active { text-decoration: none; color:#363636; }
 .hello a:visited, nav a:visited, footer a:visited, .brief a:visited { text-decoration: none; color:#363636; }
-.hello a:hover, nav a:hover, footer a:hover, .brief a:hover { text-decoration: underline dashed; color: #EF6E0B; }
+.hello a:hover, nav a:hover, footer a:hover, .brief a:hover { text-decoration: none; color: #EF6E0B; }
 
 .link-primary { text-decoration: underline; text-decoration-style: dashed; }
 
@@ -81,11 +81,11 @@ nav {
 
 nav li {
   display: inline-block;
-  margin-left:14px;
+  margin-left:16px;
   position: relative;
   overflow: hidden;
   font-size: 17px;
-  letter-spacing:1px;
+  letter-spacing: 0.3px;
   line-height: inherit;
   font-family: 'Noto Sans', helvetica, sans-serif;
   font-weight: 500;
