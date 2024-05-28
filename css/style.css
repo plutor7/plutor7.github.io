@@ -24,7 +24,7 @@ figcaption { font-size:13px; line-height:20px;font-weight:400; padding-top:4px; 
 .dark-grey { color: #363636; }
 .light-grey { color: #707070; }
 .text-center { text-align: center; }
-.p-medium { font-size:17px; line-height:30px; font-weight:400; }
+.p-medium { font-size:17px; line-height:29px; font-weight:400; }
 .p-code { font-size:16px;letter-spacing:1.2px; color:#3066DB; background-color:#f3f3f3; line-height:30px; font-weight:700; padding:16px; }
 ol { list-style-type: decimal; list-style-position: inside; margin: 0; }
 ul { list-style-type: disc; list-style-position: inside; margin: 0; }
@@ -85,7 +85,7 @@ nav li {
   position: relative;
   overflow: hidden;
   font-size: 17px;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
   line-height: inherit;
   font-family: 'Noto Sans', helvetica, sans-serif;
   font-weight: 500;
