@@ -2,29 +2,30 @@
 
 * { margin: 0; padding: 0; }
 html { overflow-y: scroll;}
-body { color: #363636; font-family: 'Cousine', helvetica, sans-serif; }
-h1 { font-size: 47px; line-height:47px; font-weight:400; font-family: 'Averia Serif Libre', helvetica, sans-serif; }  
-h2 { font-size: 36px; line-height:36px; font-weight:400; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-h3 { font-size: 28px; line-height:32px; font-weight:400; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-h4 { font-size: 22px; line-height:26px; font-weight:700; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-.header-1 { font-size: 47px; line-height:47px; font-weight:400; font-family: 'Averia Serif Libre', helvetica, sans-serif; }  
-.header-2 { font-size: 36px; line-height:36px; font-weight:400; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-.header-3 { font-size: 28px; line-height:32px; font-weight:400; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-.header-4 { font-size: 22px; line-height:26px; font-weight:700; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-.header-5 { font-size: 19px; line-height:30px; font-weight:700; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-.display-1 { font-size: 35px; line-height:52px; font-weight:400; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-.display-1-tight { font-size: 35px; line-height:42px; font-weight:400; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
-.display-2 { font-size: 25px; line-height:30px; font-weight:700; font-family: 'Averia Serif Libre', helvetica, sans-serif; }
+body { color: #363636; font-family: 'Noto Sans', helvetica, sans-serif; }
+h1 { font-size: 48px; line-height:48px; font-weight:700; font-family: 'Noto Sans', helvetica, sans-serif; }  
+h2 { font-size: 36px; line-height:36px; font-weight:700; font-family: 'Noto Sans', helvetica, sans-serif; }
+h3 { font-size: 25px; line-height:30px; font-weight:600; font-family: 'Noto Sans', helvetica, sans-serif; }
+h4 { font-size: 22px; line-height:28px; font-weight:700; font-family: 'Noto Sans', helvetica, sans-serif; }
+.header-1 { font-size: 48px; line-height:48px; font-weight:700; font-family: 'Noto Sans', helvetica, sans-serif; }  
+.header-2 { font-size: 36px; line-height:36px; font-weight:700; font-family: 'Noto Sans', helvetica, sans-serif; }
+.header-3 { font-size: 25px; line-height:30px; font-weight:600; font-family: 'Noto Sans', helvetica, sans-serif; }
+.header-4 { font-size: 22px; line-height:28px; font-weight:700; font-family: 'Noto Sans', helvetica, sans-serif; }
+.header-5 { font-size: 19px; line-height:24px; font-weight:700; font-family: 'Noto Sans', helvetica, sans-serif; }
+.display-1 { font-size: 32px; line-height:52px; font-weight:600; font-family: 'Noto Sans', helvetica, sans-serif; }
+.display-1-tight { font-size: 35px; line-height:42px; font-weight:400; font-family: 'Noto Sans', helvetica, sans-serif; }
+.display-2 { font-size: 25px; line-height:30px; font-weight:700; font-family: 'Noto Sans', helvetica, sans-serif; }
 a, img { outline: none; border:none; }
-p, li { font-size:17px; line-height:29px; font-weight:400; }
-figcaption { font-size:13px; line-height:20px;font-weight:300; padding-top:4px; }
-.tag-major { font-size:16px; display: block;line-height:32px;font-weight:700;text-transform: uppercase; letter-spacing: 0.4px; font-family: 'Averia Serif Libre', helvetica, sans-serif;}
+p, li, dt, dd { font-size:17px; line-height:29px; font-weight:400; }
+dt { font-weight: 700; }
+figcaption { font-size:13px; line-height:20px;font-weight:400; padding-top:4px; color: #707070; }
+.tag-major { font-size:16px; display: block;line-height:32px;font-weight:700;text-transform: uppercase; font-family: 'Noto Sans', helvetica, sans-serif; }
 .tag-secondary { font-size:15px; display: block;line-height:24px;font-weight:400; letter-spacing: 0.4px;}
 .dark-grey { color: #363636; }
 .light-grey { color: #707070; }
 .text-center { text-align: center; }
-.p-small { font-size:16px; line-height:30px; font-weight:300; }
-.p-code { font-size:16px;letter-spacing:1.2px; color:#3066DB;background-color:#f3f3f3;line-height:30px;font-weight:700;padding:16px;}
+.p-medium { font-size:17px; line-height:30px; font-weight:400; }
+.p-code { font-size:16px;letter-spacing:1.2px; color:#3066DB; background-color:#f3f3f3; line-height:30px; font-weight:700; padding:16px; }
 ol { list-style-type: decimal; list-style-position: inside; margin: 0; }
 ul { list-style-type: disc; list-style-position: inside; margin: 0; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
@@ -64,7 +65,7 @@ a:hover { text-decoration: none; color: #EF6E0B;}
   transition:color .2s ease-out, background 2s ease-in;}
 .hello a:active, nav a:active, footer a:active, .brief a:active { text-decoration: none; color:#363636; }
 .hello a:visited, nav a:visited, footer a:visited, .brief a:visited { text-decoration: none; color:#363636; }
-.hello a:hover, nav a:hover, footer a:hover, .brief a:hover { font-weight: none; color: #EF6E0B; }
+.hello a:hover, nav a:hover, footer a:hover, .brief a:hover { text-decoration: underline dashed; color: #EF6E0B; }
 
 .link-primary { text-decoration: underline; text-decoration-style: dashed; }
 
@@ -84,10 +85,10 @@ nav li {
   position: relative;
   overflow: hidden;
   font-size: 17px;
-  letter-spacing:1.2px;
+  letter-spacing:1px;
   line-height: inherit;
-  font-family: 'Averia Serif Libre', helvetica, sans-serif;
-  font-weight: 400;
+  font-family: 'Noto Sans', helvetica, sans-serif;
+  font-weight: 500;
 }
 
 @media (max-width: 576px) {
@@ -117,7 +118,7 @@ nav li {
  
 .text-orange {color:#EF6E0B;}
 .text-blue {color:#3066DB;}
-.text-yellow {color:#FFC850;}
+.text-yellow { background-color:rgba(255, 200, 80, 0.9); }
 
 
 /* ~ Works ~ */
