@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Blog | Yue Zhang</title>
+  <link rel="stylesheet" href="../css/grid.css" />
+	<link rel="stylesheet" href="../css/style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5E0PHQWXH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-R5E0PHQWXH');
+  </script>
+</head>
+<body id="blog">
+  <div class="wrapper">
+    <header>
+      <div class="logo"><a href="../index.html"><img src="../media/yue.svg" width="100%"></a></div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">WORK&nbsp;</a></li>
+          <li><a href="../blog.html" id="current">BLOG&nbsp;</a></li>
+          <li><a href="../explore.html">EXPLORE</a></li>
+          <li><a href="../about.html">ABOUT</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+		
+  <div class="container my-5">
+    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 my-6">
+      <h1 class="header-2 mb-6">Learning Github from zero</h1>
+      <div class="row">
+        <div class="col-12 col-sm-7">
+          <img class="mb-5" src="../media/blog/github.jpg" width="100%">
+        </div>
+      </div>
+      <p class="mb-4">It was always a headache for me when I just started learning about Github. How could every word in the tutorial makes total sense on their own, but when put together, things like "push a commit" stops sounding like English?</p>
+
+      <p class="mb-4">At Primary, product designers also code, and the team uses Github for version control. To be honest, although I was super pumped about immersing myself in learning to code from day one in this role, I didn't expect the big rock to come this soon.</p>
+
+      <p class="mb-4">I was a total novice when my onboarding pal guided me through using git commands to push my first commit. My palms were sweating when I typed in "git push ..." hit enter. But luckily, after weeks of using Git, I finally understood how it works and how to use command lines to achieve my goals.</p>
+
+      <p class="mb-6">Let me try explaining Git to people who had zero knowledge of it in simple language. </p>
+      
+      <h2 class="mb-4">What is Git?</h2>
+      
+      <p class="mb-4">Well, imagine you're working with several people on a research project, and you decided to use Dropbox to store research materials. You created a public folder and invited your teammates to contribute to it.</p>
+
+      <p class="mb-4">Similarly, when working on a collaborative coding project, you'll need a "Team Folder" to keep and track all your work. In the Git world, this folder is called "Master Repository (master repo)". It is called "master" repo because it will be the one and only team folder for the same project.</p>
+
+      <p class="mb-2">Since all team members have access to this master repo, it is important that we can track the history of changes to the repo. Hence here comes the idea of "Branch". A branch is like a logbook. It records changes in chronological order. And we call each record "Commit".</p>
+
+      <img class="mb-2" src="../media/blog/github2.png" width="100%">
+      
+      <p class="mb-2">A branch comes in handy when there's more than one person on the team. Each person can branch off from the master branch, work on their own tasks, add commits on their own branch, and request to merge their branch back to the master branch. Being able to create branches makes teamwork much more efficient. Each person could work on their tasks undisturbed and avoid creating chaotics.</p>
+
+      <img class="mb-2" src="../media/blog/github3.png" width="100%">
+
+      <p class="mb-6">That’s pretty much everything you need to know before running your first git command line. Let's take a look at some of the most useful commands as you start off.</p>
+
+      <h2 class="mb-5">Working on your own</h2>
+
+      <h3 class="mb-3">Create a new branch</h3>
+
+      <p class="mb-2">Suppose your lovely teammate has set up your local repo for you and you are starting on your first task. You want to create a branch. Open Terminal and cd into the right folder. Then you should see:</p> 
+
+      <p class="mb-4 p-code">→ name-of-your-repo git:(master)</p>
+
+      <p class="mb-2">This indicates you are on the master branch of your repo. To create a branch, just do:</p>
+
+      <p class="mb-4 p-code">git checkout -b {your-new-branch}</p>
+
+      <p class="mb-2">After hitting enter, you should see:</p>
+
+      <p class="mb-4 p-code">→ name-of-your-repo git:(name-of-your-new-branch)</p>
+
+      <p class="mb-6">Yay! You're on your new branch!</p>
+      
+
+      <h3 class="mb-3">Commit and push</h3>
+
+      <p class="mb-2">When you hit a point where you feel like you need to save your progress, first you would want to see the list all the files you have changed since last commit:</p>
+
+      <p class="mb-4 p-code">git status</p>
+      
+      <p class="mb-2">Then, choose the files you'd like to add to this commit:</p>
+
+      <p class="mb-4 p-code">git add {file-name1} {file-name2} {file-name3}</p>
+      
+      <p class="mb-2">or select all the files shown on the list:</p>
+
+      <p class="mb-4 p-code">git add .</p>
+      
+      <p class="mb-6">It's a good habit to check the status again to make sure you didn't miss any files or add any files by mistake.</p>
+
+      <p class="mb-2">Then we'll write a message to describe what this commit is about. This message will help you later in identifying what you did for each step.</p>
+      
+      <p class="mb-4 p-code">git commit -m “your message here”</p>
+
+      <p class="mb-2">Final step: push your branch to GitHub so others can review your changes.</p>
+      
+      <p class="mb-6 p-code">git push origin your {your-branch}</p>
+
+      <h3 class="mb-3">What if I...</h3>
+
+      <p class="mb-4">I know, we are humans and humans make mistakes. Let's talk about how to fix them (hopefully)!</p>
+
+      <h4 class="mb-2">Added a file to a commit accidentally?</h4>
+
+      <p class="mb-2">If unwanted files were added to the staging area, but not yet committed, a simple reset will do the job:</p>
+      
+      <p class="mb-4 p-code">$ git reset HEAD {file}</p>
+
+      <p class="mb-2">If you need to remove all the files from a commit:</p>
+
+      <p class="mb-6 p-code">$ git reset HEAD .</p>
+
+      <h4 class="mb-2">Pushed a commit that contains unwanted files?</h4>
+      
+      <p class="mb-2">The way we fix this is to reset the file on your branch and push the corrected branch. Let's replace the modified file with the corresponding file on your team's master branch:</p>
+
+      <p class="mb-4 p-code">git checkout origin/master -- {file path}</p>
+      
+
+      <p class="mb-2">Then add a commit message and push your fix:</p>
+
+      <p class="mb-6 p-code">git commit -m “remove a modified file from pull request” <br />
+      git push origin {your-branch}</p>
+
+
+      <h2 class="mb-4">Checking another branch</h2>
+
+      <p class="mb-4">Checking out another branch is easy. Let's say you're in the progress of fixing a bug, but a teammate asks you to review their pull request so they can unblock another one's work. You would want to save your progress and check out another branch.</p>
+
+      <p class="mb-5">To save your progress, you have two options:</p>
+
+      <h3 class="mb-3">1. Commit your changes and push the commit</h3>
+      
+      <p class="mb-2">Just do what you would do regularly when you push a commit. After this, check out your teammate's branch:</p>
+
+      <p class="mb-6 p-code">git checkout {branch}</p>
+
+      <h3 class="mb-3">2. Stash your changes</h3>
+      
+      <p class="mb-2">Sometimes you don't feel like committing the changes, in that case, you can "stash" the changes on the current branch and apply the changes in the stash later. Just do:</p>
+
+      <p class="mb-4 p-code">git stash</p>
+
+      <p class="mb-2">and then,</p>
+
+      <p class="mb-6 p-code">git checkout {branch}</p>
+
+      <p class="mb-2">When you finish visiting another branch and switch back to your work-in-progress branch, do:</p>
+
+      <p class="mb-4 p-code">git stash apply</p>
+
+      <p class="mb-6">This command would automatically apply the latest stash on your current branch.</p>
+
+
+      <p class="mb-2">If you have multiple stashes on a branch, and you don't want to apply the latest one, you can find the stash number and apply a specific stash:</p>
+
+      <p class="mb-6 p-code">git stash list<br />
+      git stash apply {stash number}</p>
+
+
+      <p class="mb-2">Similarly, you can also check how many local branches you have. The command is:</p>
+
+      <p class="mb-6 p-code">git branch</p>
+
+
+      <h2 class="mb-4">Stay up-to-date</h2>
+
+      <p class="mb-2">It's a good idea to keep your local repo updated, especially before you create a new branch. To update your local repo, switch to the master branch, then:</p> 
+
+      <p class="mb-4 p-code">git pull</p>
+
+      <p class="mb-2">To undo git pull, use:</p>
+
+      <p class="mb-6 p-code">git merge --abort</p>
+
+
+      <p class="mb-6">That is it! Surely there are a lot more git commands out there, but the above commands have covered 99% of my Git use cases. For more information, <a href="https://git-scm.com/docs">read Git Documentation</a>.</p>
+
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script>
+    $(function(){
+      $("#footer").load("../footer.html");
+    });
+  </script>
+</body>
+</html>
