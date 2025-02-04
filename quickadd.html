@@ -83,12 +83,49 @@
 
     <section class="bg-grey container-fluid py-8">
       <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <h2 class="mb-5">Primary was interested in testing a new shopping bag idea</h2>
-        <p class="mb-4">In 2023, as the business continues to grow, Primary was seeking ways to improve its key order metrics such as UPT (unit per transaction) and AOV (average order value). In an effort to support this company goal, the merchandising team and the e-Commerce team decided to explore a new site feature idea that <b>recommends complimentary, low cost products to customers on the Shopping Bag page</b> before they check out.</p>
+        <h2 class="mb-5 pb-1">Define the Problem</h2>
 
-        <figure>
-          <img src="media/primary/quickadd/context.png" width="100%" />
-          <figcaption class="text-center">Some example products that the teams were considering</figcaption>
+        <h3 class="mb-4">Business Goal</h3>
+        <p class="mb-4">In 2023, as Primary continued to grow, the company sought ways to improve key order metrics such as UPT (Unit Per Transaction) and AOV (Average Order Value). To support this goal, the Merchandising and E-commerce teams identified an opportunity: <b>increase the visibility and sales of less popular products like hats, mittens, and socks.</b></p>
+
+        <p class="mb-4">Since these accessories are low-cost and ideal add-ons, the strategy focused on featuring them on the Shopping Bag page, where customers review and make final changes to their orders.</p>
+
+        <figure class="text-center mb-6">
+          <img src="media/primary/quickadd/context.png" width="90%" />
+          <figcaption class="text-center">Some of the low-visibility products the teams were considering promoting</figcaption>
+        </figure>
+
+        <h3 class="mb-4">Customer Problem</h2>
+        <p class="mb-4">When a customer reaches the Shopping Bag and realizes their subtotal doesn’t reach the free shipping threshold, <b>they would need to spend extra time searching for low-cost items to qualify for free shipping, or choose to abandon the order.</b></p>
+
+        <p>In a previous survey study, we learned that 42% of our customers abandon their shopping bags because "Extra costs are too high (shipping and tax)". While we can't eliminate these costs, we can reduce friction by making low-cost, add-on products easier to find.</b></p>
+      </div>
+    </section>
+
+    <section class="bg-white container-fluid py-7">
+      <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <h2 class="display-1">So, how might we improve the visibility of low-traffic products on Shopping Bag and help customers pass free shipping threshold with little effort?</h2>
+      </div>
+    </section>
+
+    <section class="bg-grey container-fluid py-8">
+      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <h2 class="mb-5">Final Design</h2>
+        <h3 class="mb-4">Add accessories to bag with just a few clicks!</h3>
+        <figure class="text-center mb-6">
+          <img src="media/primary/quickadd/final-design-1.gif" width="60%" />
+        </figure>
+
+        <h3 class="mb-4">A shorter Shopping Bag that's easier to scan</h3>
+        <figure class="text-center mb-6">
+          <img src="media/primary/quickadd/final-design-2.gif" width="60%" />
+        </figure>
+      
+        <h3 class="mb-4">I created mockups for mobile (always first!), tablet, and desktop, ensuring an optimal user experience across various devices.</h3>
+      </div>
+      <div class="col-12 text-center">
+        <figure class="text-center">
+          <img src="media/primary/quickadd/final-design-3.png" width="100%" />
         </figure>
       </div>
     </section>
@@ -96,7 +133,7 @@
     <section class="bg-white container-fluid py-8">
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
         <h2 class="mb-5">Unpack the requirements</h2>
-        <p class="mb-4">As the only Product Designer on this project, I started with connecting with the project manager and the Head of eCommerce to gather project requirements and details. I used the <b>5 Ws + 1 H framework</b> to guide my inquiries:</p>
+        <p class="mb-4">To understand project requirement details, I connected with the SVP of eCommerce and the project manager, using the <b>5Ws + 1H framework</b> to guide my inquiries.</p>
 
         <figure>
           <img src="media/primary/quickadd/requirements.png" width="100%" />
@@ -109,9 +146,7 @@
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
         <h2 class="mb-5">Research</h2>
         <h3 class="mb-4">Learn from the market</h3>
-        <p class="mb-4">After going through over 80 e-Commerce sites, I discovered 10 sites that have a shopping bag recommendation section that was similar to what we invisioned. I summarized the findings and attached screenshots of each example in a Google Slides deck, which was shared with key stakeholders through Slack and in project meetings.</p>
-      </div>
-      <div class="col-12 text-center">
+        <p class="mb-4">With the project goals and requirements in mind, I reviewed over 80 e-commerce sites and identified 10 with shopping bag features similar to what we envisioned. I summarized key findings and compiled screenshots of each example in a Google Slides deck, which was shared with key stakeholders over Slack and in project meetings.</p>
         <figure class="mb-6">
           <img src="media/primary/quickadd/research-1.png" width="100%" />
         </figure>
@@ -119,11 +154,11 @@
 
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">  
         <h3 class="mb-4">Inspect the existing Shopping Bag performance</h3>
-        <p class="mb-4">Since the existing Shopping Bag already had two product recommendation sections – You May Also Like (YMAL) and Recently Viewed (RV), adding Quick Add in Shopping Bag will make the page even longer, especially on mobile. The market research also showed that most online shopping websites don’t have more than 2 recommendation sections in Shopping Bag. So, <b>I reached out to our Data Scientist to get the performance data of YMAL and RV</b> so that we can decide if both sections are worth keeping.</p>
-        <figure class="mb-6">
+        <p class="mb-4">Since the Shopping Bag already had two product recommendation sections—You May Also Like (YMAL) and Recently Viewed (RV), adding Quick Add risked making the page too long, especially on mobile. Market research also showed that most sites limit Shopping Bag recommendations to 2 sections. <b>To inform our decision, I collaborated with our Data Scientist to analyze YMAL and RV performance.</b></p>
+        <figure class="mb-4">
           <img src="media/primary/quickadd/research-2.png" width="100%" />
         </figure>
-        <p class="mb-4">Although the engagement rate of the two sections aren’t very high, their contribution to the net revenue aren’t negligible. Considering these two sections are at the bottom of Shopping Bag, people didn’t think it’s necessary to remove any of them. But <b>the e-commerce team took my suggestion to display products in a carousel instead of a grid so that the page is easier to scan.</b></p>
+        <p class="mb-4">We learned that both YMAL and RV contributed meaningful revenue each year. Rather than removing one of them, <b>I suggested switching from a grid to a carousel layout to improve scannability.</b> The E-commerce team took my suggestion and later we tested this idea through an A/B test. The result suggested there’s no significant difference between control and test groups in key order metrics. So we pushed this change to all users.</p>
       </div>
       <div class="col-12 text-center">
         <figure>
@@ -185,27 +220,8 @@
 
     <section class="bg-grey container-fluid py-8">
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <h2 class="mb-5">Final Design</h2>
-        <h3 class="mb-4">Add accessories to bag with just a few clicks!</h3>
-        <figure class="text-center mb-6">
-          <img src="media/primary/quickadd/final-design-1.gif" width="60%" />
-        </figure>
-
-        <h3 class="mb-4">A shorter Shopping Bag that's easier to scan</h3>
-        <figure class="text-center mb-6">
-          <img src="media/primary/quickadd/final-design-2.gif" width="60%" />
-        </figure>
-      
-        <h3 class="mb-4">I created mockups for mobile (always first!), tablet, and desktop, ensuring an optimal user experience across various devices.</h3>
-      </div>
-      <div class="col-12 text-center">
-        <figure class="text-center mb-6">
-          <img src="media/primary/quickadd/final-design-3.png" width="100%" />
-        </figure>
-      </div>
-
-      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <h3 class="mb-4">I speak CSS for a more efficient communication with engineers.</h3>
+        <h2 class="mb-5">Design Handoff</h2>
+        <p class="mb-4">I speak CSS for a more efficient communication with engineers.</p>
         <figure class="text-center">
           <img src="media/primary/quickadd/final-design-4.png" width="100%" />
         </figure>
