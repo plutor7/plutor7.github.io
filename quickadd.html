@@ -170,8 +170,8 @@
     <section class="bg-white container-fluid py-8">
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
         <h2 class="mb-5">Design Process</h2>
-        <h3 class="mb-4">4 design iterations: from layout and interaction to UI details</h3>
-        <p class="mb-5">In the first 2 iterations, I focused on answering one question: where is the best place to recommend these products? <b>I explored different location options with various UI treatments based on project requirements and learnings from the market.</b></p>
+        <h3 class="mb-4">Iteration 1-2</h3>
+        <p class="mb-5">In the first 2 iterations, I explored different location options with various UI treatments based on project requirements and learnings from the market.</p>
       </div>
       <div class="col-12 text-center">
         <figure class="mb-6">
@@ -179,41 +179,46 @@
           <figcaption>Some UI layout options from iteration 2. I marked the options people preferred with a star at the top. Reasoning was documented in comments in Figma.</figcaption>
         </figure>
       </div>
-
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <p class="mb-4"><b>I strive for simple and straightforward user interactions.</b> I suggested using our existing Quick Shop modal to allow users to view product details and add items to bag. I also proposed that, after a product is added to bag, the list should refresh so that it doesn’t recommend products that are already in bag.</p>
-      </div>
-      <div class="col-12 text-center">
-        <figure class="mb-5">
+        <p class="mb-4">Feedback from Product, Engineering, and E-commerce helped answer two key questions:</p>
+        <h4 class="mb-2">Q1: Where is the best place to recommend Quick Add products?</h4>
+        <figure class="mb-6">
           <img src="media/primary/quickadd/design-2.png" width="100%" />
         </figure>
       </div>
-      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <p class="mb-2">I presented the options the team believed most promising from iteration 2 to the co-founders for design feedback. Their feedback was very helpful in shaping the feature:</p>
-        <ul class="mx-md-5 mb-6">
-          <li>We would like to limit the number of products in Quick Add to 2 to simplify customers' decision process.</li>
-          <li>We would like to make sure customers don't miss this section, so it should be placed above the checkout button.</li>
-        </ul>
 
-        <p class="mb-4"><b>Based on the feedback, I kept iterating on the designs to simplify and prioritize Quick Add.</b> The updated options were shared with skateholders for internal review before approved by the co-founders in our second design review meeting.</p>
-      </div>
-      <div class="col-12 text-center">
-        <figure class="mb-6">
+      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <h4 class="mb-2">Q2: What information is essential for customers to make a decision?</h4>
+        <figure class="mb-4">
           <img src="media/primary/quickadd/design-3.png" width="100%" />
-          <figcaption>Some mobile UI options from iteration 4</figcaption>
         </figure>
       </div>
+
       <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <h3 class="mb-4">Oh, wait…</h3>
+        <p class="mb-2">I presented the most promising options from iteration 2 to the co-founders for feedback, which helped shaping the feature:</p>
+        <ul class="mx-md-5 mb-6">
+          <li><b>Limit the number of products in Quick Add to 2</b> to simplify customers' decision process.</li>
+          <li><b>Make sure customers don't miss Quick Add</b> so that we can collect A/B testing data in a shorter period of time.</li>
+        </ul>
+
+        <h3 class="mb-4">Iteration 3-4</h3>
+        <p class="mb-4"><b>Based on the feedback from leadership, I kept iterating on the designs to simplify and prioritize Quick Add.</b> The updated options were shared with skateholders for internal review before approved by the co-founders in our second design review meeting.</p>
+        <figure class="mb-6 text-center">
+          <img src="media/primary/quickadd/design-4.png" width="100%" />
+          <figcaption>Some of the mobile UI options from iteration 4.</figcaption>
+        </figure>
+      </div>
+
+      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <h3 class="mb-4">One more (unexpected) iteration</h3>
         <p class="mb-4">While the design was approved by the co-founders in January, 2024, the development work didn’t kick off until April.</p>
 
         <p class="mb-4">While investigating into the requirements, <b>the lead engineer identified a significant challenge: the background color of product images in the Quick Add feature differed from the regular product images.</b> This meant that new images would need to be generated and stored for each color variant of every product, introducing substantial technical complexity and potentially delaying the launch.</p>
 
-        <p class="mb-4"><b>After weighing our options, we decided to modify the UI so that no new product images would be required.</b> I conducted a 5th design iteration, maintaining the original image backgrounds, and presented the updated options for approval.</p>
-      </div>
-      <div class="col-12 text-center">
+        <p class="mb-4"><b>After weighing our options, we decided to modify the UI so that no new product images would be required.</b> I did one more design iteration maintaining the original image backgrounds and presented the updated options for approval.</p>
+
         <figure>
-          <img src="media/primary/quickadd/design-4.png" width="100%" />
+          <img src="media/primary/quickadd/design-5.png" width="100%" />
         </figure>
       </div>
     </section>
